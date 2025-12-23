@@ -237,6 +237,49 @@ body {
     font-size: 26px;
   }
 }
+/* ===== FADE + SLIDE IN ===== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Appliqué aux sections */
+.hero,
+.manifesto,
+.projects,
+.project-item,
+.case-study section {
+  animation: fadeUp 1s ease forwards;
+}
+.project-item {
+  position: relative;
+  overflow: hidden;
+}
+
+/* halo violet subtil */
+.project-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top left,
+    rgba(123,92,255,0.15),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.project-item:hover::before {
+  opacity: 1;
+}
+
 
 
 
