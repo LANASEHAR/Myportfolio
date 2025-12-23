@@ -1,3 +1,21 @@
+/* ===== ANIMATED BACKGROUND ===== */
+body {
+  background: linear-gradient(
+    120deg,
+    #f3f0ff,
+    #ffffff,
+    #efe9ff,
+    #ffffff
+  );
+  background-size: 400% 400%;
+  animation: gradientMove 18s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 /* ===== PURPLE PALETTE ===== */
 :root {
   --purple-dark: #1b102e;
@@ -219,5 +237,6 @@
     font-size: 26px;
   }
 }
+
 
 
