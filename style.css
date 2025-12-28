@@ -1008,6 +1008,26 @@ a {
   transform: translateY(0);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
+/* ========== SCROLL STAGGER ANIMATION ========== */
+
+/* Default state — visible */
+.reveal-on-scroll {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Animation state when in view */
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.reveal-on-scroll:not(.visible) {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
 
 
 
