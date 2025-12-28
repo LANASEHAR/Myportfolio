@@ -1067,6 +1067,34 @@ html {
   scroll-behavior: smooth;
 }
 
+.home {
+  background: linear-gradient(
+    120deg,
+    var(--purple-bg),
+    white
+  );
+}
+.case-study.softmind {
+  background: var(--softmind-bg);
+}
+.case-study.softmind h2 {
+  color: var(--softmind-accent);
+}
+
+.case-study.paper {
+  background: var(--paper-bg);
+}
+.case-study.paper h2 {
+  color: var(--paper-accent);
+}
+
+.case-study.structa {
+  background: var(--structa-bg);
+}
+.case-study.structa h2 {
+  color: var(--structa-accent);
+}
+
 
 
 
