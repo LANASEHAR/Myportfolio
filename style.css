@@ -880,6 +880,54 @@ a {
   color: #111;
   font-weight: 500;
 }
+/* =====================
+   HERO PHOTO
+===================== */
+
+.hero-visual {
+  position: absolute;
+  right: 6%;
+  bottom: 0;
+  width: 360px;
+  height: 460px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* soft background shape like reference */
+.photo-bg {
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  background: radial-gradient(
+    circle at top,
+    #ffb703,
+    var(--purple-main)
+  );
+  border-radius: 48% 52% 50% 50% / 60% 60% 40% 40%;
+  filter: blur(0.5px);
+}
+
+/* your photo */
+.hero-photo {
+  position: relative;
+  width: 85%;
+  height: auto;
+  border-radius: 24px;
+  z-index: 2;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.25);
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .hero-visual {
+    position: relative;
+    margin-top: 60px;
+    right: auto;
+  }
+}
+
 
 
 
