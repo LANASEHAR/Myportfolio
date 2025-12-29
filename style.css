@@ -683,6 +683,56 @@ body {
 a:hover {
   color: #7E2929;
 }
+/* =========================
+   BUTTON COHERENCE FIX
+========================= */
+
+/* Base commune */
+.btn {
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-radius: 999px;
+  transition: all 0.25s ease;
+}
+
+/* PRIMARY — View Selected Work */
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    #7E2929,
+    #9A3A3A
+  );
+  color: #fff !important;
+  box-shadow:
+    0 12px 28px rgba(126, 41, 41, 0.35);
+}
+
+/* PRIMARY hover */
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 18px 40px rgba(126, 41, 41, 0.45);
+}
+
+/* SECONDARY — Contact Me */
+.btn-outline {
+  background: transparent;
+  border: 2px solid #7E2929;
+  color: #7E2929 !important;
+  box-shadow: none;
+}
+
+/* SECONDARY hover — devient "soft filled" */
+.btn-outline:hover {
+  background: rgba(126, 41, 41, 0.08);
+  transform: translateY(-2px);
+}
+
 
 
 
