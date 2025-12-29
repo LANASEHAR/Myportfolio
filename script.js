@@ -1,30 +1,107 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const items = document.querySelectorAll(".reveal-on-scroll");
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
+  /* =========================
+     1. SCROLL REVEAL (PRO)
+  ========================= */
+
+  const revealItems = document.querySelectorAll(".reveal-on-scroll");
+
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  if (!prefersReducedMotion) {
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target); // performance
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    revealItems.forEach(el => revealObserver.observe(el));
+  } else {
+    // Accessibilité : animations désactivées
+    revealItems.forEach(el => el.classList.add("visible"));
+  }
+
+  /* =========================
+     2. ACTIVE NAV ON SCROLL
+     (SIGNAL PRODUIT FORT)
+  ========================= */
+
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav-item");
+
+  const setActiveNav = () => {
+    let currentSection = "";
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 140;
+      const sectionHeight = section.offsetHeight;
+
+      if (
+        window.scrollY >= sectionTop &&
+        window.scrollY < sectionTop + sectionHeight
+      ) {
+        currentSection = section.getAttribute("id");
       }
     });
-  }, { threshold: 0.15 });
 
-  items.forEach(el => observer.observe(el));
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${currentSection}`) {
+        link.classList.add("active");
+      }
+    });
+  };
+
+  window.addEventListener("scroll", setActiveNav);
+
+  /* =========================
+     3. SMOOTH SCROLL OFFSET
+     (FIX NAV OVERLAP)
+  ========================= */
+
+  navLinks.forEach(link => {
+    link.addEventListener("click", e => {
+      const targetId = link.getAttribute("href");
+
+      if (targetId.startsWith("#")) {
+        e.preventDefault();
+        const target = document.querySelector(targetId);
+
+        if (target) {
+          const offset = 120; // hauteur nav
+          const top =
+            target.getBoundingClientRect().top +
+            window.pageYOffset -
+            offset;
+
+          window.scrollTo({
+            top,
+            behavior: "smooth"
+          });
+        }
+      }
+    });
+  });
+
+  /* =========================
+     4. MICRO-STAGGER PROJECTS
+     (TRÈS SUBTIL)
+  ========================= */
+
+  const projectCards = document.querySelectorAll(".project-card");
+
+  projectCards.forEach((card, index) => {
+    card.style.transitionDelay = `${index * 60}ms`;
+  });
+
 });
-.project-card {
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
 
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 24px 48px rgba(0,0,0,0.08);
-}
-
-.project-image img {
-  transition: transform 0.6s ease;
-}
-
-.project-card:hover .project-image img {
-  transform: scale(1.04);
-}
 
