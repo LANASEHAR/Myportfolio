@@ -112,5 +112,8 @@ window.addEventListener("scroll", () => {
     el.style.transform = `translateY(${offset}px)`;
   });
 });
+projectCards.forEach((card, index) => {
+  card.style.transitionDelay = `${index * 100}ms`;
+});
 
 
