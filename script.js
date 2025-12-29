@@ -103,5 +103,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+const parallaxEls = document.querySelectorAll(".parallax-bg");
+
+window.addEventListener("scroll", () => {
+  parallaxEls.forEach(el => {
+    const speed = el.dataset.speed;
+    const offset = window.pageYOffset * speed;
+    el.style.transform = `translateY(${offset}px)`;
+  });
+});
 
 
