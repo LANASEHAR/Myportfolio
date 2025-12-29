@@ -494,6 +494,27 @@ body {
     0 0 0 1px rgba(230,57,70,0.2);
 }
 
+:root {
+  --gradient-angle: 90deg;
+}
+
+body {
+  background: linear-gradient(
+    var(--gradient-angle),
+    #fff8f9,
+    #ffecec,
+    #fff8f9
+  );
+  background-size: 400% 400%;
+  animation: slowGradient 20s ease infinite;
+}
+
+@keyframes slowGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 
 
 
