@@ -733,6 +733,26 @@ a:hover {
   transform: translateY(-2px);
 }
 
+/* =========================
+   CASE STUDY – SMALLER SCREENS
+========================= */
+
+.case-study .screens-grid {
+  max-width: 720px;          /* limite la largeur globale */
+  margin-inline: auto;
+}
+
+.case-study .screens-grid img {
+  max-width: 180px;          /* ↓ taille des images */
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 16px 32px rgba(0,0,0,0.08);
+}
+.case-study .screens-grid {
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 32px;
+}
+
 
 
 
