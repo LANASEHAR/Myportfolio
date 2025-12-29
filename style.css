@@ -621,6 +621,17 @@ body {
 .manifesto-item p {
   max-width: 520px;
 }
+/* =========================
+   REMOVE RED DOTS COMPLETELY
+========================= */
+
+.experience-snapshot li::before,
+.project-impact li::before,
+.project-tech li::before,
+.hero-cv__skills li::before {
+  display: none !important;
+}
+
 
 
 
