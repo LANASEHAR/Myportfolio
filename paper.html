@@ -1,183 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Paper & Soul – E-Commerce Case Study | Halima Essaouaf</title>
-  <meta name="description" content="Paper & Soul: A UX/UI case study on designing a calm, editorial e-commerce experience for mindful browsing. Includes user research, design iterations, and measurable impact.">
-  <meta name="keywords" content="UX/UI design, e-commerce, editorial design, mindful browsing, Figma prototype, Halima Essaouaf">
-  <link rel="stylesheet" href="style.css">
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper & Soul Case Study | Halima Essaouaf</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* PAPER & SOUL BRAND (Warm, Editorial, Sophisticated) */
+            --paper-bg: #fff7ef;
+            --paper-accent: #f08a24;
+            --text-dark: #2e2e3a;
+            --text-muted: #666e75;
+            --white: #ffffff;
+            
+            /* UI TOKENS */
+            --radius-lg: 24px;
+            --radius-sm: 12px;
+            --shadow-subtle: 0 10px 30px rgba(240, 138, 36, 0.08);
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--paper-bg);
+            color: var(--text-dark);
+            margin: 0;
+            line-height: 1.8;
+            scroll-behavior: smooth;
+        }
+
+        /* Reading Progress */
+        .progress-bar {
+            position: fixed;
+            top: 0; left: 0; height: 4px;
+            background: linear-gradient(90deg, var(--paper-accent), #7E2929);
+            width: 0%; z-index: 1000;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+        /* HEADER */
+        nav { padding: 40px 0; display: flex; justify-content: space-between; align-items: center; }
+        .back-link { text-decoration: none; color: var(--text-dark); font-weight: 800; letter-spacing: 1px; }
+
+        /* SECTIONS */
+        .section {
+            background: var(--white);
+            padding: 90px 70px;
+            border-radius: var(--radius-lg);
+            margin-bottom: 60px;
+            box-shadow: var(--shadow-subtle);
+            opacity: 0;
+            transform: translateY(40px);
+            transition: var(--transition);
+        }
+
+        .section.active { opacity: 1; transform: translateY(0); }
+
+        h1 { font-size: clamp(3.5rem, 10vw, 6rem); letter-spacing: -0.06em; line-height: 0.9; margin: 0; }
+        h2 { font-size: 2.5rem; letter-spacing: -0.03em; margin-bottom: 30px; color: var(--paper-accent); }
+        h3 { font-size: 1.5rem; margin-top: 30px; color: var(--text-dark); }
+        
+        .hero { text-align: center; padding: 120px 0; background: transparent; box-shadow: none; opacity: 1; transform: none; }
+        .subtitle { font-size: 1.6rem; color: var(--text-muted); max-width: 800px; margin: 30px auto; font-weight: 400; line-height: 1.4; }
+
+        /* KPI / IMPACT CARDS */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .impact-card {
+            background: var(--paper-bg);
+            padding: 40px;
+            border-radius: var(--radius-sm);
+            text-align: center;
+            border: 1px solid rgba(240, 138, 36, 0.1);
+        }
+
+        .impact-number { font-size: 3rem; font-weight: 800; color: var(--paper-accent); display: block; }
+
+        /* EDITORIAL SCREEN GALLERY (Small & Captivating) */
+        .screens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .screen-item {
+            background: #fbfbfb;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .screen-item:hover { transform: scale(1.03); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+
+        .screen-item img {
+            width: 100%;
+            height: 220px; /* Small size for mindful browsing style */
+            object-fit: cover;
+            display: block;
+        }
+
+        .screen-info { padding: 20px; border-top: 1px solid #eee; }
+        .screen-title { font-weight: 700; display: block; margin-bottom: 5px; }
+        .screen-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
+
+        /* PERSONA QUOTE */
+        .persona-highlight {
+            background: #2e2e3a;
+            color: white;
+            padding: 60px;
+            border-radius: var(--radius-lg);
+            margin: 60px 0;
+            position: relative;
+        }
+        .persona-highlight h2 { color: var(--paper-accent); border: none; }
+
+        /* FIGMA WRAPPER */
+        .figma-box {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.15);
+            aspect-ratio: 16 / 9;
+            background: #000;
+        }
+
+        /* ANIMATIONS */
+        ul li { margin-bottom: 15px; }
+        
+        @media (max-width: 768px) {
+            .section { padding: 40px 25px; }
+            h1 { font-size: 4rem; }
+        }
+    </style>
+</head>
 <body>
 
-<main class="case-study paper">
+    <div class="progress-bar" id="bar"></div>
 
-  <!-- BACK -->
-  <a href="index.html" class="back">← Back to Portfolio</a>
+    <div class="container">
+        <nav>
+            <a href="index.html" class="back-link">← PAPER & SOUL</a>
+            <div style="font-weight: 600; opacity: 0.5;">CASE STUDY 2024</div>
+        </nav>
 
-  <!-- INTRO -->
-  <section class="intro">
-    <h1>Paper & Soul</h1>
-    <p class="subtitle">
-      An editorial e-commerce experience designed for calm, mindful browsing—transforming online shopping into a serene journey of discovery.
-    </p>
-    <p class="intro-text">
-      In a digital world dominated by aggressive sales tactics, Paper & Soul reimagines e-commerce as a magazine-like escape. For users like Lina, who crave meaningful connections over cluttered carts, this platform fosters emotional engagement through thoughtful design.
-    </p>
-  </section>
+        <header class="hero">
+            <h1>Mindful<br>Discovery.</h1>
+            <p class="subtitle">An editorial e-commerce experience designed for calm browsing—transforming online shopping into a serene journey.</p>
+            <div style="margin-top: 40px; font-weight: 600; color: var(--paper-accent);">
+                <span>4 WEEKS</span> • <span>FIGMA / HOTJAR</span> • <span>RETAIL DESIGN</span>
+            </div>
+        </header>
 
-  <!-- CONTEXT -->
-  <section class="overview">
-    <h2>Project Overview</h2>
-    <p>
-      Paper & Soul is a conceptual e-commerce website for a boutique selling artisanal paper goods and creative supplies. The focus was on creating an immersive, editorial experience that prioritizes user well-being over conversion metrics, drawing inspiration from print media.
-    </p>
-    <p><strong>Duration:</strong> 4 weeks | <strong>Tools:</strong> Figma, Adobe XD (for mood boards), Hotjar (for heatmaps)</p>
-  </section>
+        <section class="section active">
+            <h2>The Vision</h2>
+            <p>Paper & Soul is an immersive editorial platform for artisanal paper goods. In a market dominated by aggressive "Buy Now" tactics, we prioritized <strong>visual breathing room</strong> and <strong>storytelling</strong> to engage creative professionals who value the journey as much as the product.</p>
+        </section>
 
-  <!-- ROLE -->
-  <section>
-    <h2>My Role</h2>
-    <p>
-      As the sole UX/UI Designer, I led research, strategy, wireframing, prototyping, and testing to craft an emotionally resonant interface aligned with behavioral design principles.
-    </p>
-  </section>
+        <section class="section">
+            <h2>The "Clutter" Crisis</h2>
+            <p>Traditional e-commerce overwhelms users with pop-ups and endless grids, causing <strong>70% of users to abandon carts</strong> due to mental exhaustion. Browsing usually lasts only 2 minutes before frustration peaks.</p>
+            
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <span class="impact-number">70%</span>
+                    <span>Average Abandonment</span>
+                </div>
+                <div class="impact-card">
+                    <span class="impact-number">2 min</span>
+                    <span>Frustration Peak</span>
+                </div>
+            </div>
+        </section>
 
-  <!-- PROBLEM -->
-  <section>
-    <h2>Problem Statement</h2>
-    <p>
-      Traditional e-commerce sites like Amazon overwhelm users with pop-ups, banners, and endless options, leading to decision fatigue and emotional disconnect. Studies show 70% of users abandon carts due to clutter, with browsing time averaging just 2 minutes before frustration.
-    </p>
-  </section>
+        <section class="section">
+            <h2>User Insights</h2>
+            <p>Surveys of 25 creative professionals revealed a deep craving for "story-driven" discovery. Minimalism isn't just an aesthetic; it's a value multiplier.</p>
+            <ul>
+                <li><strong>Narrative Power:</strong> 85% of users engage longer with editorial layouts than standard grids.</li>
+                <li><strong>Cognitive Load:</strong> Generous white space increases perceived product value by <strong>40%</strong>.</li>
+                <li><strong>Mindful Consumption:</strong> Users want to "feel" the texture of paper through high-quality visual hierarchy.</li>
+            </ul>
+        </section>
 
-  <!-- USER RESEARCH -->
-  <section>
-    <h2>User Research & Insights</h2>
-    <p>
-      I surveyed 25 creative professionals and analyzed heatmaps from competitors. Key insights:
-    </p>
-    <ul>
-      <li>Users prefer "story-driven" discovery over product grids—85% engage longer with editorial layouts.</li>
-      <li>White space and typography reduce cognitive load, increasing perceived value by 40%.</li>
-      <li>Persona validation: Lina's preferences highlight a demand for calm, aesthetic experiences in shopping.</li>
-    </ul>
-    <p>This informed a shift from sales-focused to experience-centered design.</p>
-  </section>
+        <div class="persona-highlight">
+            <h2>Persona: Lina</h2>
+            <p style="font-size: 1.2rem; opacity: 0.9;"><strong>28, Reader & Creative Professional</strong></p>
+            <p>Lina avoids cluttered sites that feel "salesy." She wants to browse like flipping through a beautiful magazine. She values aesthetics and meaningful discovery.</p>
+            <blockquote style="font-size: 2rem; font-weight: 800; line-height: 1.2; margin-top: 30px; color: var(--paper-accent);">
+                "I want to shop in a place that respects my attention, not fights for it."
+            </blockquote>
+        </div>
 
-  <!-- PERSONA -->
-  <section>
-    <h2>User Persona</h2>
-    <p>
-      <strong>Lina, 28 — Reader & Creative Professional</strong><br>
-      Lina values aesthetics and meaningful discovery in a fast-paced world. She avoids cluttered sites that feel "salesy." Quote: "I want to browse like flipping through a beautiful magazine, not a catalog."
-    </p>
-  </section>
+        <section class="section">
+            <h2>Measurable Success</h2>
+            <p>Our editorial approach yielded significant behavioral shifts in moderated testing sessions.</p>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <span class="impact-number">+45%</span>
+                    <span>Browsing Time</span>
+                </div>
+                <div class="impact-card">
+                    <span class="impact-number">-28%</span>
+                    <span>Cart Abandonment</span>
+                </div>
+                <div class="impact-card">
+                    <span class="impact-number">8.5/10</span>
+                    <span>Emotional Connection</span>
+                </div>
+            </div>
+        </section>
 
-  <!-- OBJECTIVE -->
-  <section>
-    <h2>Objective</h2>
-    <p>
-      Create an e-commerce experience that fosters emotional connection through calm browsing, reducing friction and enhancing satisfaction.
-    </p>
-    <ul>
-      <li>↑ Browsing time by 50% (from 2min to 3min average)</li>
-      <li>↓ Cart abandonment by 30%</li>
-      <li>↑ Emotional connection score from 4/10 to 8/10 (via surveys)</li>
-    </ul>
-  </section>
+        <section class="section">
+            <h2>The Editorial Interface</h2>
+            <p>High-fidelity screens showcasing a harmonious balance of typography and product storytelling.</p>
+            <div class="screens-grid">
+                <div class="screen-item">
+                    <img src="https://raw.githubusercontent.com/LANASEHAR/Myportfolio/refs/heads/main/screen-1.png" alt="Homepage">
+                    <div class="screen-info">
+                        <span class="screen-title">The Homepage</span>
+                        <span class="screen-desc">Curated stories replacing aggressive banners.</span>
+                    </div>
+                </div>
+                <div class="screen-item">
+                    <img src="https://raw.githubusercontent.com/LANASEHAR/Myportfolio/refs/heads/main/Product%20page.png" alt="Product View">
+                    <div class="screen-info">
+                        <span class="screen-title">Immersion Page</span>
+                        <span class="screen-desc">Narrative-rich product details and texture focus.</span>
+                    </div>
+                </div>
+                <div class="screen-item">
+                    <img src="https://raw.githubusercontent.com/LANASEHAR/Myportfolio/refs/heads/main/Cart.png" alt="Checkout">
+                    <div class="screen-info">
+                        <span class="screen-title">Calm Checkout</span>
+                        <span class="screen-desc">Simplified, reassuring process with clear steps.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- STRATEGY -->
-  <section>
-    <h2>UX Strategy</h2>
-    <ul>
-      <li><strong>Editorial Layout:</strong> Magazine-inspired grids with storytelling elements.</li>
-      <li><strong>White Space:</strong> Generous spacing to promote focus and breathing room.</li>
-      <li><strong>Minimal Noise:</strong> Removed promotions, using subtle calls-to-action.</li>
-      <li><strong>Typography & Rhythm:</strong> Hierarchical fonts for a natural, readable flow.</li>
-    </ul>
-  </section>
+        <section class="section">
+            <h2>Interactive Prototype</h2>
+            <div class="figma-box">
+                <iframe style="border: none;" width="100%" height="100%" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/FCF9A1R7hwxGg8uoLIMqBB/PAPER---SOULE-commerce-Website" allowfullscreen></iframe>
+            </div>
+        </section>
 
-  <!-- DESIGN ITERATIONS -->
-  <section>
-    <h2>Design Iterations</h2>
-    <p>
-      Iterated from mood boards to prototypes over 3 rounds:
-    </p>
-    <ul>
-      <li><strong>Round 1:</strong> Initial layouts were too grid-heavy; user feedback led to adding narrative text, boosting engagement by 25%.</li>
-      <li><strong>Round 2:</strong> Refined spacing and colors for a "calm" feel, reducing perceived clutter in tests.</li>
-      <li><strong>Round 3:</strong> Integrated micro-interactions (e.g., hover reveals) for immersion without distraction.</li>
-    </ul>
-    <p>This ensured the design evolved from functional to emotionally compelling.</p>
-  </section>
+        <section class="section">
+            <h2>Key Learnings</h2>
+            <p>Paper & Soul proved that <strong>Empathy in E-commerce</strong> drives loyalty. By reducing visual noise, we improved brand perception and turned a simple transaction into a meditative experience.</p>
+            <p><strong>Next Steps:</strong> Explore A/B testing on personalized curation and long-term retention metrics for editorial subscribers.</p>
+        </section>
 
-  <!-- FLOW -->
-  <section>
-    <h2>User Flow</h2>
-    <p>
-      A serene, narrative-driven journey:
-    </p>
-    <ol>
-      <li>Homepage → Editorial stories and curated selections.</li>
-      <li>Product immersion → Detailed, story-rich pages.</li>
-      <li>Simple checkout → Streamlined, reassuring process.</li>
-      <li>Post-purchase → Personalized thank-you with care tips.</li>
-    </ol>
-    <p><em>View the full flow diagram in the prototype.</em></p>
-  </section>
-
-  <!-- CHALLENGES -->
-  <section>
-    <h2>Challenges & Solutions</h2>
-    <p>
-      Balancing editorial calm with e-commerce functionality (e.g., search) was challenging. Solution: Hidden advanced filters behind a "Explore More" button, preserving the core aesthetic.
-    </p>
-  </section>
-
-  <!-- SCREENS -->
-  <section>
-    <h2>UI Screens</h2>
-    <p class="muted">
-      High-fidelity screens showcasing the editorial, serene interface.
-    </p>
-    <div class="screens-grid">
-      <img src="https://raw.githubusercontent.com/LANASEHAR/Myportfolio/refs/heads/main/screen-1.png" alt="Paper & Soul homepage: Editorial layout with curated stories, generous white space, and subtle product teasers.">
-      <img src="https://raw.githubusercontent.com/LANASEHAR/Myportfolio/refs/heads/main/Product%20page.png" alt="Paper & Soul product page: Immersive view with storytelling text, high-quality images, and minimal distractions.">
-      <img src="https://raw.githubusercontent.com/LANASEHAR/Myportfolio/refs/heads/main/Cart.png" alt="Paper & Soul checkout: Simple, reassuring cart with clear steps and emotional messaging.">
     </div>
-  </section>
 
-  <!-- FIGMA EMBED -->
-  <section>
-    <h2>Interactive Figma Prototype</h2>
-    <p>Experience the calm browsing flow interactively.</p>
-    <div class="figma-embed">
-      <iframe
-        src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/FCF9A1R7hwxGg8uoLIMqBB/PAPER---SOULE-commerce-Website"
-        allowfullscreen>
-      </iframe>
-    </div>
-  </section>
+    <script>
+        // Progress Scroll
+        window.onscroll = function() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("bar").style.width = scrolled + "%";
+        };
 
-  <!-- TESTING -->
-  <section>
-    <h2>Usability Testing & Validation</h2>
-    <p>
-      Tested with 12 users via moderated sessions. Results: Browsing time increased 45%, cart abandonment dropped 28%, and emotional connection scores hit 8.5/10. Users described the experience as "meditative," with 95% completing purchases without issues.
-    </p>
-  </section>
+        // Scroll Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.15 });
 
-  <!-- LEARNINGS -->
-  <section>
-    <h2>Key Learnings & Impact</h2>
-    <p>
-      Calm, editorial UX builds emotional bonds, turning transactions into meaningful interactions. By reducing visual noise, Paper & Soul improved brand perception and user satisfaction, proving that empathy in design drives loyalty.
-    </p>
-    <p><strong>Next Steps:</strong> I'd add personalization via user preferences and measure long-term retention through A/B tests.</p>
-  </section>
-
-</main>
-
+        document.querySelectorAll('.section').forEach(section => observer.observe(section));
+    </script>
 </body>
 </html>
