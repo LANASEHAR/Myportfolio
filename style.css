@@ -1,7 +1,7 @@
 :root {
   /* ===== GLOBAL BRAND (HOME) ===== */
   --color-bg: #fff8f9;
-  --color-primary: #e63946;
+  --color-primary: #7E2929; /* Ajusté pour cohérence rouge */
   --color-primary-soft: #ffb3bc;
   --color-dark: #2e2e3a;
   --color-muted: #666;
@@ -20,7 +20,16 @@
   --structa-accent: #f5c400;
 
   --transition: 0.3s ease;
+  /* Ajout pour thèmes dynamiques */
+  --bg-color: #fff8f9;
+  --text-color: #2e2e3a;
 }
+
+.dark {
+  --bg-color: #2e2e3a;
+  --text-color: #f7f7f9;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -32,16 +41,11 @@ html {
 body {
   font-family: Inter, Arial, sans-serif;
   min-height: 100vh;
-  background: linear-gradient(
-    120deg,
-    #f3f0ff,
-    #e8e1ff,
-    #ffffff,
-    #efe9ff
-  );
+  background: var(--bg-color);
   background-size: 300% 300%;
   animation: gradientMove 15s ease infinite;
-  color: var(--color-dark);
+  color: var(--text-color);
+  transition: background 0.5s, color 0.5s; /* Transition pour thèmes */
 }
 
 @keyframes gradientMove {
@@ -53,7 +57,13 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+  transition: color var(--transition);
 }
+
+a:hover {
+  color: var(--color-primary);
+}
+
 .top-nav {
   position: fixed;
   top: 24px;
@@ -78,12 +88,18 @@ a {
 
 .nav-item:hover {
   color: var(--color-primary);
+  background: rgba(126, 41, 41, 0.1);
 }
 
 .nav-item.active {
   background: var(--color-primary);
   color: white;
 }
+
+.nav-item:focus {
+  outline: 2px solid var(--color-primary); /* Accessibilité */
+}
+
 .hero-cv {
   background: var(--color-bg);
   padding: 100px 40px;
@@ -111,6 +127,11 @@ a {
   border: 6px solid var(--color-primary);
   overflow: hidden;
   margin: 0 auto 20px;
+  transition: transform var(--transition);
+}
+
+.photo-frame:hover {
+  transform: scale(1.05);
 }
 
 .photo-frame img {
@@ -139,22 +160,40 @@ a {
   line-height: 1.6;
   margin-bottom: 24px;
 }
+
 .btn {
   font-size: 15px;
   font-weight: 600;
   padding: 14px 28px;
   border-radius: 999px;
   transition: all var(--transition);
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  letter-spacing: 0.01em;
+}
+
+.btn:focus {
+  outline: 2px solid var(--color-primary); /* Accessibilité */
 }
 
 .btn-primary {
-  background: var(--color-primary);
+  background: linear-gradient(135deg, #7E2929, #9A3A3A);
   color: white;
-  box-shadow: 0 12px 30px rgba(230,57,70,0.35);
+  box-shadow: 0 12px 30px rgba(126, 41, 41, 0.35);
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  animation: pulse 0.6s ease; /* Animation ajoutée */
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
 .btn-outline {
@@ -166,6 +205,7 @@ a {
   background: var(--color-primary);
   color: white;
 }
+
 .projects {
   padding: 120px 24px;
 }
@@ -181,6 +221,7 @@ a {
   border-radius: 28px;
   overflow: hidden;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  will-change: transform; /* Performance */
 }
 
 .project-card.pro:hover {
@@ -212,8 +253,11 @@ a {
   font-size: 12px;
   padding: 6px 12px;
   border-radius: 999px;
-  background: var(--color-primary-soft);
+  background: rgba(126, 41, 41, 0.12);
+  color: var(--color-primary);
+  font-weight: 600;
 }
+
 .manifesto {
   padding: 120px 24px;
 }
@@ -235,6 +279,7 @@ a {
   transform: translateY(-8px);
   box-shadow: 0 30px 60px rgba(0,0,0,0.1);
 }
+
 .contact {
   padding: 140px 24px;
   background: linear-gradient(120deg, #f3f0ff, #fff, #fff7ef);
@@ -267,6 +312,7 @@ a {
 .contact-card:hover {
   transform: translateY(-10px);
 }
+
 .case-study.softmind { background: var(--softmind-bg); }
 .case-study.softmind h2 { color: var(--softmind-accent); }
 
@@ -285,11 +331,12 @@ body::before {
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(circle at 15% 20%, rgba(230,57,70,0.06), transparent 35%),
-    radial-gradient(circle at 85% 80%, rgba(230,57,70,0.04), transparent 40%);
+    radial-gradient(circle at 15% 20%, rgba(126,41,41,0.06), transparent 35%),
+    radial-gradient(circle at 85% 80%, rgba(126,41,41,0.04), transparent 40%);
   pointer-events: none;
   z-index: -1;
 }
+
 .hero-cv {
   position: relative;
 }
@@ -309,6 +356,7 @@ body::before {
   );
   transform: translateX(-50%);
 }
+
 .photo-frame {
   position: relative;
 }
@@ -318,7 +366,7 @@ body::before {
   position: absolute;
   inset: -10px;
   border-radius: 50%;
-  border: 1px dashed rgba(230,57,70,0.25);
+  border: 1px dashed rgba(126,41,41,0.25);
   opacity: 0;
   transition: opacity var(--transition);
 }
@@ -326,6 +374,7 @@ body::before {
 .hero-cv__left:hover .photo-frame::after {
   opacity: 1;
 }
+
 .btn {
   position: relative;
   isolation: isolate;
@@ -345,6 +394,7 @@ body::before {
 .btn:hover::after {
   opacity: 1;
 }
+
 .project-card.pro {
   border: 1px solid rgba(0,0,0,0.04);
 }
@@ -356,6 +406,7 @@ body::before {
 .project-card.pro:hover h3 {
   color: var(--color-primary);
 }
+
 .manifesto-item {
   position: relative;
 }
@@ -371,6 +422,7 @@ body::before {
   border-radius: 50%;
   opacity: 0.6;
 }
+
 .contact-card {
   border: 1px solid rgba(0,0,0,0.04);
 }
@@ -378,22 +430,25 @@ body::before {
 .contact-card:hover {
   box-shadow:
     0 30px 60px rgba(0,0,0,0.08),
-    0 0 0 1px rgba(230,57,70,0.15);
+    0 0 0 1px rgba(126,41,41,0.15);
 }
+
 img {
   will-change: transform;
 }
+
 /* =========================
    FINAL BRAND OVERRIDE
 ========================= */
 
 body {
   background:
-    radial-gradient(circle at 20% 10%, rgba(230,57,70,0.12), transparent 40%),
-    radial-gradient(circle at 80% 90%, rgba(230,57,70,0.08), transparent 45%),
+    radial-gradient(circle at 20% 10%, rgba(126,41,41,0.12), transparent 40%),
+    radial-gradient(circle at 80% 90%, rgba(126,41,41,0.08), transparent 45%),
     linear-gradient(180deg, #fff8f9 0%, #ffffff 100%);
   animation: none;
 }
+
 /* =========================
    TYPOGRAPHY SYSTEM
 ========================= */
@@ -429,6 +484,7 @@ body {
   color: var(--color-dark);
   letter-spacing: -0.02em;
 }
+
 /* =========================
    HERO SIGNATURE
 ========================= */
@@ -445,36 +501,40 @@ body {
   right: -120px;
   width: 360px;
   height: 360px;
-  background: radial-gradient(circle, rgba(230,57,70,0.25), transparent 70%);
+  background: radial-gradient(circle, rgba(126,41,41,0.25), transparent 70%);
   filter: blur(60px);
 }
+
 .photo-frame {
   box-shadow:
-    0 30px 60px rgba(230,57,70,0.25),
-    0 0 0 1px rgba(230,57,70,0.15);
+    0 30px 60px rgba(126,41,41,0.25),
+    0 0 0 1px rgba(126,41,41,0.15);
 }
+
 .btn-primary {
   background: linear-gradient(
     135deg,
-    #e63946,
-    #ff6b6b
+    #7E2929,
+    #9A3A3A
   );
 }
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 20px 40px rgba(230,57,70,0.45);
+  box-shadow: 0 20px 40px rgba(126,41,41,0.45);
 }
+
 .project-card.pro {
   background:
     linear-gradient(180deg, #ffffff, #fff8f9);
 }
 
 .project-tag {
-  background: rgba(230,57,70,0.12);
+  background: rgba(126,41,41,0.12);
   color: var(--color-primary);
   font-weight: 600;
 }
+
 .manifesto-item {
   background:
     linear-gradient(180deg, #ffffff, #fff8f9);
@@ -483,6 +543,7 @@ body {
 .manifesto-item h3 {
   color: var(--color-primary);
 }
+
 .contact-card {
   background:
     linear-gradient(180deg, #ffffff, #fff6f6);
@@ -491,222 +552,4 @@ body {
 .contact-card:hover {
   box-shadow:
     0 30px 60px rgba(0,0,0,0.2),
-    0 0 0 1px rgba(230,57,70,0.2);
-}
-
-:root {
-  --gradient-angle: 90deg;
-}
-
-body {
-  background: linear-gradient(
-    var(--gradient-angle),
-    #fff8f9,
-    #ffecec,
-    #fff8f9
-  );
-  background-size: 400% 400%;
-  animation: slowGradient 20s ease infinite;
-}
-
-@keyframes slowGradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-.project-info h3:hover {
-  color: var(--color-primary);
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease;
-}
-
-/* =========================
-   REMOVE UGLY BULLETS
-========================= */
-
-ul {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-}
-
-li {
-  padding-left: 0;
-}
-/* =========================
-   DESIGN LISTS (SIGNATURE)
-========================= */
-
-.experience-snapshot li,
-.project-impact li,
-.project-tech li,
-.hero-cv__skills li {
-  position: relative;
-  padding-left: 22px;
-  margin-bottom: 10px;
-  font-size: 15px;
-  color: #3a3a44;
-  line-height: 1.6;
-}
-
-.experience-snapshot li::before,
-.project-impact li::before,
-.project-tech li::before,
-.hero-cv__skills li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.65em;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--color-primary);
-}
-/* =========================
-   TYPOGRAPHY HIERARCHY
-========================= */
-
-body {
-  font-size: 16px;
-  line-height: 1.7;
-}
-
-.hero-cv__name {
-  font-size: clamp(34px, 4vw, 42px);
-  letter-spacing: -0.04em;
-}
-
-.hero-cv__title {
-  font-size: 18px;
-  font-weight: 500;
-}
-
-.hero-tagline {
-  font-size: 17px;
-  font-style: italic;
-  color: var(--color-primary);
-  margin-top: 8px;
-}
-
-.hero-cv__bio {
-  font-size: 19px;
-  line-height: 1.7;
-  color: #3a3a44;
-}
-.section-title,
-.manifesto h2 {
-  font-size: clamp(30px, 4vw, 38px);
-  letter-spacing: -0.035em;
-  margin-bottom: 28px;
-}
-.project-impact li,
-.project-tech li {
-  font-size: 14.5px;
-  color: #4a4a55;
-}
-
-.project-tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 14px;
-  margin-top: 12px;
-}
-
-.project-tech li {
-  padding-left: 16px;
-  font-size: 13px;
-  color: var(--color-primary);
-}
-.project-info p,
-.manifesto-item p {
-  max-width: 520px;
-}
-/* =========================
-   REMOVE RED DOTS COMPLETELY
-========================= */
-
-.experience-snapshot li::before,
-.project-impact li::before,
-.project-tech li::before,
-.hero-cv__skills li::before {
-  display: none !important;
-}
-
-
-/* =========================
-   CLEAN LIST STYLE (NO DOTS)
-========================= */
-
-.experience-snapshot li,
-.project-impact li,
-.project-tech li,
-.hero-cv__skills li {
-  padding-left: 0;
-  border-left: 2px solid rgba(230,57,70,0.15);
-  padding-left: 12px;
-  margin-bottom: 12px;
-}
-/* =========================
-   FORCE RED TEXT COLOR
-========================= */
-
-:root {
-  --color-primary: #7E2929;
-}
-
-/* Textes principaux rouges */
-.hero-cv__title,
-.hero-tagline,
-.section-title,
-.manifesto h2,
-.project-info h3:hover,
-.project-tag,
-.project-tech li,
-.availability,
-.work-context h3 {
-  color: #7E2929 !important;
-}
-
-/* Accents rouges (bordures, séparateurs, hover) */
-.nav-item.active,
-.btn-primary,
-.btn-outline:hover {
-  background-color: #7E2929 !important;
-}
-
-.btn-outline {
-  border-color: #7E2929 !important;
-  color: #7E2929 !important;
-}
-
-/* Hover subtil */
-a:hover {
-  color: #7E2929;
-}
-/* =========================
-   BUTTON COHERENCE FIX
-========================= */
-
-/* Base commune */
-.btn {
-  min-height: 52px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  border-radius: 999px;
-  transition: all 0.25s ease;
-}
-
-/* PRIMARY — View Selected Work */
-.btn-primary {
-  background: linear-gradient(
-    135deg,
-    #7E2929,
-    #9A3A3A
-  );
-  color: #fff !important;
-  box-shadow:
-    0 12px 28px rgba(126,
+    0 0 0 1px rgba(126
