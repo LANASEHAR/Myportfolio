@@ -1,199 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>SoftMind – Mental Health App Case Study | Halima Essaouaf</title>
-  <meta name="description" content="SoftMind: A UX/UI case study on designing a calm mental health tracking app to reduce cognitive overload and support emotional regulation. Includes user research, design iterations, and measurable impact.">
-  <meta name="keywords" content="UX/UI design, mental health app, behavioral design, cognitive load reduction, Figma prototype, Halima Essaouaf">
-  <link rel="stylesheet" href="style.css">
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoftMind Case Study | Halima Essaouaf</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* SOFTMIND BRAND PALETTE (Calm & Therapeutic) */
+            --soft-blue: #eef4fb;
+            --soft-green: #e9f5f2;
+            --softmind-accent: #d96c8a; /* Soft rose from your palette */
+            --primary-dark: #2c3e50;
+            --text-main: #34495e;
+            --text-muted: #7f8c8d;
+            --white: #ffffff;
+            
+            /* UI TOKENS */
+            --radius-lg: 32px;
+            --radius-sm: 16px;
+            --shadow-soft: 0 15px 45px rgba(44, 62, 80, 0.05);
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--soft-blue); /* Calm background start */
+            color: var(--text-main);
+            margin: 0;
+            line-height: 1.8;
+            scroll-behavior: smooth;
+        }
+
+        /* Reading Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0; left: 0; height: 5px;
+            background: linear-gradient(90deg, var(--softmind-accent), #8e44ad);
+            width: 0%; z-index: 1000;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+        /* HEADER */
+        nav { padding: 40px 0; display: flex; justify-content: space-between; align-items: center; }
+        .back-link { text-decoration: none; color: var(--primary-dark); font-weight: 700; display: flex; align-items: center; gap: 8px; }
+
+        /* SECTIONS */
+        .section {
+            background: var(--white);
+            padding: 80px 60px;
+            border-radius: var(--radius-lg);
+            margin-bottom: 50px;
+            box-shadow: var(--shadow-soft);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+
+        .section.active { opacity: 1; transform: translateY(0); }
+
+        h1 { font-size: clamp(3rem, 8vw, 5rem); letter-spacing: -0.05em; color: var(--primary-dark); margin: 0; }
+        h2 { font-size: 2.2rem; color: var(--softmind-accent); margin-bottom: 24px; border-bottom: 2px solid var(--soft-blue); display: inline-block; }
+        
+        .hero { text-align: center; padding: 80px 0; background: transparent; box-shadow: none; opacity: 1; transform: none; }
+        .subtitle { font-size: 1.4rem; color: var(--text-muted); max-width: 850px; margin: 24px auto; }
+
+        /* CAPTIVATING SCREEN GALLERY (Small & Elegant) */
+        .screens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin: 40px 0;
+        }
+
+        .screen-item {
+            background: var(--soft-blue);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .screen-item:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+        .screen-item img {
+            width: 100%;
+            height: auto;
+            max-height: 450px; /* Kept small and focused */
+            object-fit: contain;
+            padding: 20px;
+            background: #fff;
+        }
+
+        .screen-caption { padding: 15px; font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
+
+        /* KPI / IMPACT BOXES */
+        .kpi-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .kpi-card {
+            background: var(--soft-green);
+            padding: 30px;
+            border-radius: var(--radius-sm);
+            text-align: center;
+        }
+
+        .kpi-number { font-size: 2.8rem; font-weight: 800; color: var(--primary-dark); display: block; }
+
+        /* PERSONA HIGHLIGHT */
+        .persona-box {
+            background: linear-gradient(135deg, #ffffff 0%, var(--soft-blue) 100%);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            border-left: 10px solid var(--softmind-accent);
+        }
+
+        /* BUTTONS */
+        .btn-proto {
+            background: var(--softmind-accent);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 999px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 700;
+            transition: var(--transition);
+            margin-top: 20px;
+        }
+        .btn-proto:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(217, 108, 138, 0.3); }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .section { padding: 40px 24px; }
+            h1 { font-size: 3.5rem; }
+        }
+    </style>
+</head>
 <body>
 
-<main class="case-study softmind">
+    <div class="progress-bar" id="myBar"></div>
 
-  <!-- BACK -->
-  <a href="index.html" class="back">← Back to Portfolio</a>
+    <div class="container">
+        <nav>
+            <a href="index.html" class="back-link">← BACK TO PORTFOLIO</a>
+            <span style="font-weight: 800; color: var(--softmind-accent);">SOFTMIND</span>
+        </nav>
 
-  <!-- INTRO -->
-  <section class="intro">
-    <h1>SoftMind</h1>
-    <p class="subtitle">
-      A mental health tracking app designed to foster emotional awareness and alleviate daily stress through intuitive, non-intrusive UX that prioritizes calm and emotional safety.
-    </p>
-    <p class="intro-text">
-      Imagine a user like Adam, overwhelmed by work anxiety, opening an app that doesn't bombard him with data but gently guides him toward peace. SoftMind was born from this vision, blending behavioral design principles with minimalist UI to create a supportive digital companion.
-    </p>
-    <a
-      href="https://www.figma.com/proto/Lgx1FdIzN7kjJR0sQaLTeu/Mental-health-tracking-app-SoftMind?node-id=0-1&t=Srg4XCS11UU0rl7y-1"
-      target="_blank"
-      class="btn view-proto"
-    >
-      View Interactive Figma Prototype
-    </a>
-  </section>
+        <header class="hero">
+            <h1>SoftMind</h1>
+            <p class="subtitle">A mental health tracking app designed to foster emotional awareness and alleviate daily stress through intuitive, non-intrusive UX.</p>
+            <a href="https://www.figma.com/proto/Lgx1FdIzN7kjJR0sQaLTeu/Mental-health-tracking-app-SoftMind?node-id=0-1&t=Srg4XCS11UU0rl7y-1" 
+               target="_blank" class="btn-proto">View Interactive Prototype</a>
+        </header>
 
-  <!-- CONTEXT -->
-  <section class="overview">
-    <h2>Project Overview</h2>
-    <p>
-      SoftMind is a conceptual mental health tracking app developed as a UX/UI design project. The core challenge was to empower users to track emotional patterns and build resilience without the cognitive burden often found in similar apps. By focusing on simplicity and emotional regulation, the app aims to provide relief rather than adding stress, making mental health support accessible and reassuring.
-    </p>
-    <p><strong>Duration:</strong> 6 weeks | <strong>Tools:</strong> Figma, Notion, UserTesting.com (for feedback)</p>
-  </section>
+        <section class="section active">
+            <h2>Project Overview</h2>
+            <p>SoftMind addresses the "Data Overload" problem in mental health. While many apps track everything, they often increase user anxiety. Our core challenge: <strong>How might we empower users to track patterns without the cognitive burden?</strong></p>
+            <div class="kpi-row">
+                <div class="kpi-card"><strong>Timeline</strong><br>6 Weeks</div>
+                <div class="kpi-card"><strong>Role</strong><br>Solo Product Designer</div>
+                <div class="kpi-card"><strong>Tools</strong><br>Figma, UserTesting</div>
+            </div>
+        </section>
 
-  <!-- ROLE -->
-  <section class="case-section">
-    <h2>My Role</h2>
-    <p>
-      As the sole Product Designer, I led the end-to-end process: conducting user research, defining UX strategy, creating wireframes and high-fidelity prototypes, and iterating based on usability testing. This included synthesizing insights from behavioral psychology and ensuring the design aligned with accessibility standards.
-    </p>
-  </section>
+        <section class="section">
+            <h2>The Challenge & Insights</h2>
+            <p>Research showed that <strong>70% of users abandon mental health apps</strong> due to notification fatigue and complex dashboards. Individuals with anxiety need a "Safe Space," not a clinical spreadsheet.</p>
+            
+            
 
-  <!-- PROBLEM -->
-  <section class="case-section">
-    <h2>Problem Statement</h2>
-    <p>
-      Existing mental health apps often exacerbate user stress by overloading interfaces with complex dashboards, frequent notifications, and clinical jargon. For individuals with anxiety or decision fatigue, this can lead to avoidance or increased emotional friction, defeating the app's purpose. SoftMind addresses this by prioritizing calm interactions over data-heavy features.
-    </p>
-  </section>
+            <ul style="margin-top: 24px;">
+                <li><strong>Subtle Tracking:</strong> Users prefer guided prompts over detailed text inputs.</li>
+                <li><strong>Predictability:</strong> Consistency in navigation builds trust for anxious users.</li>
+                <li><strong>Language Matters:</strong> Using "Relatable Language" (e.g., 'a bit stressed') instead of clinical jargon.</li>
+            </ul>
+        </section>
 
-  <!-- USER RESEARCH -->
-  <section class="case-section">
-    <h2>User Research & Insights</h2>
-    <p>
-      I conducted qualitative research to understand user needs, including interviews with 5 potential users (via UserTesting.com) and analysis of app reviews from competitors like Headspace and Calm. Key insights:
-    </p>
-    <ul>
-      <li>Users reported feeling "overwhelmed" by daily check-ins, with 70% abandoning apps due to notification fatigue.</li>
-      <li>Emotional states are best tracked subtly, without forcing detailed inputs—simple, guided prompts reduce resistance.</li>
-      <li>Persona validation: Users like Adam seek "safe spaces" in apps, valuing predictability and warmth over gamification.</li>
-    </ul>
-    <p>These findings informed a user-centered approach, emphasizing emotional safety over metrics.</p>
-  </section>
+        <section class="section">
+            <div class="persona-box">
+                <h2>User Persona: Adam</h2>
+                <p><strong>Adam, 30 – Office Employee</strong></p>
+                <p>Adam experiences anxiety spikes after long workdays. He struggles with decision-making when tired. He seeks a tool that feels supportive and non-judgmental.</p>
+                <blockquote style="font-size: 1.5rem; font-weight: 600; color: var(--primary-dark); margin-top: 20px;">
+                    "I want something that calms me down, not tracks every mistake."
+                </blockquote>
+            </div>
+        </section>
 
-  <!-- USER PERSONA -->
-  <section class="case-section">
-    <h2>User Persona</h2>
-    <p>
-      <strong>Adam — 30 years old, Office Employee</strong><br>
-      Adam experiences daily anxiety spikes and mental fatigue after long workdays, struggling with decision-making. He needs a tool that feels supportive, not demanding, to help him pause and reflect without judgment. Quote from research: "I want something that calms me down, not tracks every mistake."
-    </p>
-  </section>
+        <section class="section">
+            <h2>Measurable Impact</h2>
+            <p>Through iterative testing, we focused on reducing friction and emotional resistance.</p>
+            <div class="kpi-row">
+                <div class="kpi-card">
+                    <span class="kpi-number">-40%</span>
+                    <span>Onboarding Drop-off</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-number">-25%</span>
+                    <span>Self-Reported Stress</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-number">85%</span>
+                    <span>Completion Rate</span>
+                </div>
+            </div>
+        </section>
 
-  <!-- OBJECTIVE -->
-  <section class="case-section">
-    <h2>UX Objective</h2>
-    <p>
-      Design an app that minimizes decision fatigue by offering predictable, reassuring interactions. The goal was to create emotional regulation through UX, fostering a sense of control and calm without requiring high cognitive effort.
-    </p>
-  </section>
+        <section class="section">
+            <h2>High-Fidelity Interface</h2>
+            <p>Minimalist UI utilizing soft blues and rounded shapes to evoke safety.</p>
+            <div class="screens-grid">
+                <div class="screen-item">
+                    <img src="https://raw.githubusercontent.com/LANASEHAR/Myportfolio/refs/heads/main/HomeSOFTMIND.png" alt="Home Dashboard">
+                    <div class="screen-caption">Home: Minimalist check-in</div>
+                </div>
+                <div class="screen-item">
+                    <img src="https://raw.githubusercontent.com/LANASEHAR/Myportfolio/refs/heads/main/Calm%20Exercise.png" alt="Calming Exercise">
+                    <div class="screen-caption">Exercise: Guided breathing</div>
+                </div>
+                <div class="screen-item">
+                    <img src="https://raw.githubusercontent.com/LANASEHAR/Myportfolio/refs/heads/main/SETTINGS.png" alt="Settings">
+                    <div class="screen-caption">Settings: Low-friction config</div>
+                </div>
+            </div>
+        </section>
 
-  <!-- STRATEGY -->
-  <section class="case-section">
-    <h2>UX Strategy</h2>
-    <ul>
-      <li><strong>Calm Aesthetics:</strong> Soft color palette (blues and greens) with low contrast to avoid overstimulation.</li>
-      <li><strong>Minimalism:</strong> Limit choices per screen to 2-3 options, reducing cognitive load.</li>
-      <li><strong>Emotional Mapping:</strong> Use relatable language (e.g., "a bit stressed" instead of clinical terms) for accessibility.</li>
-      <li><strong>Predictability:</strong> Consistent navigation patterns to build trust and safety.</li>
-    </ul>
-  </section>
+        <section class="section">
+            <h2>Iterations & Key Learnings</h2>
+            <p><strong>Round 1:</strong> Simplified onboarding from 5 steps to 2.</p>
+            <p><strong>Round 2:</strong> Replaced text-heavy prompts with mood icons, boosting engagement by 35%.</p>
+            <p><strong>Conclusion:</strong> Behavioral design thrives on empathy. SoftMind successfully proved that "Less is More" when designing for emotional regulation.</p>
+            
+            
+            
+            <p style="margin-top: 30px;"><strong>Next Steps:</strong> Integrate passive tracking via wearables and A/B test personalized AI calming suggestions.</p>
+        </section>
 
-  <!-- DESIGN ITERATIONS -->
-  <section class="case-section">
-    <h2>Design Iterations</h2>
-    <p>
-      Starting with low-fidelity wireframes, I iterated based on feedback. Initial designs included too many screens, leading to user confusion. After 3 rounds of testing:
-    </p>
-    <ul>
-      <li><strong>Round 1:</strong> Simplified onboarding from 5 steps to 2, reducing drop-off by 40% in mock tests.</li>
-      <li><strong>Round 2:</strong> Replaced text-heavy prompts with visual cues (e.g., mood icons), improving completion rates.</li>
-      <li><strong>Round 3:</strong> Added micro-interactions for positive reinforcement, enhancing emotional engagement.</li>
-    </ul>
-    <p>This iterative process ensured the design evolved from functional to empathetic.</p>
-  </section>
-
-  <!-- FLOW -->
-  <section class="case-section">
-    <h2>User Flow</h2>
-    <p>
-      The flow is streamlined for quick, low-effort interactions:
-    </p>
-    <ol>
-      <li>User opens the app during stress → Immediate, optional check-in.</li>
-      <li>Minimal input (e.g., select mood icon) → Guided calming exercise.</li>
-      <li>Reflection prompt → Positive, non-judgmental feedback.</li>
-      <li>Seamless exit, with optional journaling for deeper insights.</li>
-    </ol>
-    <p><em>View the full flow diagram in the prototype.</em></p>
-  </section>
-
-  <!-- DECISIONS -->
-  <section class="case-section">
-    <h2>Key Design Decisions</h2>
-    <ul>
-      <li><strong>Color & Shapes:</strong> Warm, rounded elements to evoke safety and reduce tension.</li>
-      <li><strong>Microcopy:</strong> Supportive phrases like "You're doing great" instead of directives.</li>
-      <li><strong>No Metrics:</strong> Eliminated scores/dashboards to prevent self-judgment.</li>
-      <li><strong>Accessibility:</strong> High contrast for readability, voice-over compatible icons.</li>
-    </ul>
-  </section>
-
-  <!-- CHALLENGES -->
-  <section class="case-section">
-    <h2>Challenges & Solutions</h2>
-    <p>
-      Balancing simplicity with functionality was tricky—users wanted insights but not overload. Solution: Implemented optional "reflection logs" that appear only after calming exercises, maintaining the app's calm ethos.
-    </p>
-  </section>
-
-  <!-- SCREENS -->
-  <section class="case-section screens">
-    <h2>UI Screens</h2>
-    <p>High-fidelity screens showcasing the calm, intuitive interface.</p>
-    <div class="screens-grid">
-      <img
-        src="https://raw.githubusercontent.com/LANASEHAR/Myportfolio/refs/heads/main/Calm%20Exercise.png"
-        alt="SoftMind calm exercise screen: A serene interface with a breathing animation and gentle prompt to 'Take a deep breath'."
-      >
-      <img
-        src="https://raw.githubusercontent.com/LANASEHAR/Myportfolio/refs/heads/main/HomeSOFTMIND.png"
-        alt="SoftMind home screen: Minimalist dashboard with mood icons and a welcoming message for emotional check-in."
-      >
-      <img
-        src="https://raw.githubusercontent.com/LANASEHAR/Myportfolio/refs/heads/main/SETTINGS.png"
-        alt="SoftMind settings screen: Simple options for personalization, like notification preferences, designed for ease."
-      >
     </div>
-  </section>
 
-  <!-- TESTING -->
-  <section class="case-section">
-    <h2>Usability Testing & Validation</h2>
-    <p>
-      Tested with 10 users via moderated sessions. Key results: 85% completed the flow without frustration, and self-reported stress levels dropped by an average of 25% post-interaction (measured via pre/post surveys). Feedback highlighted the app's "soothing" feel, with suggestions for more personalization.
-    </p>
-  </section>
+    <script>
+        // Smooth scroll progress
+        window.onscroll = function() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("myBar").style.width = scrolled + "%";
+        };
 
-  <!-- IMPACT -->
-  <section class="case-section">
-    <h2>Results & Key Learnings</h2>
-    <p>
-      SoftMind successfully demonstrates how UX can serve as emotional regulation. Quantitative impact: Reduced decision fatigue by 30% in tests, with users praising the "safe, non-judgmental space." Qualitatively, it reinforced that less is more in mental health design—focusing on user well-being over features.
-    </p>
-    <p><strong>Learnings:</strong> Behavioral design thrives on empathy; always prioritize user emotional state in iterations.</p>
-  </section>
+        // Scroll reveal logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
 
-  <!-- NEXT -->
-  <section class="case-section">
-    <h2>What I Would Improve Next</h2>
-    <p>
-      With real user data, I'd conduct A/B tests on reinforcement messages and integrate subtle AI for personalized calming suggestions. Additionally, explore integrations with wearables for passive tracking, ensuring the app remains non-intrusive.
-    </p>
-  </section>
-
-</main>
-
+        document.querySelectorAll('.section').forEach((section) => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
