@@ -3,187 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halima Essaouaf | Senior Product Designer | Behavioral UX Specialist</title>
-    <meta name="description" content="Senior Product Designer specialized in Behavioral UX and Cognitive Clarity. Helping SaaS teams reduce friction and scale user engagement.">
+    <title>Halima Essaouaf | Senior Product Designer Portfolio</title>
+    <meta name="description" content="Portfolio of Halima Essaouaf, Product Designer specialized in Behavioral Design and Cognitive Clarity.">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <style>
+        /* Quick Senior UI Additions */
+        :root { --accent: #7E2929; --text: #2d3436; --bg: #ffffff; }
+        body { font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.7; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .impact-badge { background: #fdf2f2; color: var(--accent); padding: 4px 12px; border-radius: 20px; font-weight: 700; font-size: 0.9rem; }
+        .project-grid-main { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; margin-top: 50px; }
+        .card { border: 1px solid #eee; border-radius: 16px; overflow: hidden; transition: 0.3s; text-decoration: none; color: inherit; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .card img { width: 100%; height: 250px; object-fit: cover; }
+        .card-content { padding: 24px; }
+        .method-box { background: #f9f9f9; padding: 40px; border-radius: 24px; margin: 60px 0; }
+    </style>
 </head>
-
 <body>
-    <a href="#projects" class="skip-link">Skip to projects</a>
 
-    <header>
-        <nav class="top-nav" aria-label="Main Navigation">
-            <a href="#home" class="nav-item active">Focus</a>
-            <a href="#projects" class="nav-item">Case Studies</a>
-            <a href="#manifesto" class="nav-item">Philosophy</a>
-            <a href="#contact" class="nav-item">Hire Me</a>
-        </nav>
-    </header>
+    <nav class="container" style="padding: 30px 0; display: flex; justify-content: space-between; align-items: center;">
+        <strong>HALIMA.E</strong>
+        <div>
+            <a href="#projects" style="margin-left: 20px; text-decoration: none; color: var(--text);">Projects</a>
+            <a href="#about" style="margin-left: 20px; text-decoration: none; color: var(--text);">Manifesto</a>
+            <a href="#contact" style="margin-left: 20px; font-weight: 700; color: var(--accent);">Contact</a>
+        </div>
+    </nav>
 
-    <main>
-        <section class="hero-cv fade-in-bg" id="home">
-            <div class="hero-cv__inner">
-                <div class="hero-cv__left">
-                    <div class="photo-frame slide-in-left">
-                        <img src="https://c.superprof.com/i/m/39005647/600/20251006181230/39005647.webp" alt="Halima Essaouaf Portrait">
+    <main class="container">
+        
+        <section style="padding: 100px 0; text-align: center;">
+            <h1 style="font-size: 4rem; letter-spacing: -2px; margin-bottom: 20px;">Designing clarity for <br>complex digital products.</h1>
+            <p style="font-size: 1.4rem; color: #636e72; max-width: 800px; margin: 0 auto;">
+                I combine cognitive psychology, UX research, and front-end thinking to design calm, intentional products that reduce friction and deliver measurable business value.
+            </p>
+            <div style="margin-top: 40px;">
+                <img src="https://c.superprof.com/i/m/39005647/600/20251006181230/39005647.webp" alt="Halima" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid #f9f9f9;">
+            </div>
+        </section>
+
+        <section class="method-box">
+            <h2 style="margin-bottom: 30px;">My Strategic UX Approach</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
+                <div><h3>1. Understand</h3><p>User goals, pain points, constraints, and business context.</p></div>
+                <div><h3>2. Simplify</h3><p>Information architecture, flows, and cognitive friction removal.</p></div>
+                <div><h3>3. Design</h3><p>From strategic wireframes to interaction logic and UI.</p></div>
+                <div><h3>4. Validate</h3><p>Usability heuristics, user feedback, and constant iteration.</p></div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Selected Case Studies</h2>
+            <div class="project-grid-main">
+
+                <a href="softmind.html" class="card">
+                    <img src="https://i.pinimg.com/736x/85/8d/8c/858d8c6975776eb762decaf536db30e1.jpg" alt="SoftMind">
+                    <div class="card-content">
+                        <span class="impact-badge">Emotional UX • +25% Completion</span>
+                        <h3 style="margin: 15px 0;">SoftMind</h3>
+                        <p>A mental health tracking app designed to foster emotional awareness and alleviate daily stress through intuitive UX. Specifically designed for users like <strong>Adam</strong> to reduce anxiety spikes.</p>
+                        <p style="font-size: 0.9rem; color: #b2bec3; margin-top: 10px;">Figma • UserTesting • Behavioral Science</p>
                     </div>
-                    <h1 class="hero-cv__name fade-in-up">Halima Essaouaf</h1>
-                    <p class="hero-cv__title fade-in-up delay-1">Senior Product Designer</p>
-                    <p class="hero-tagline fade-in-up delay-2">Bridging the gap between <strong>user psychology</strong> and <strong>business scalability</strong>.</p>
-                    
-                    <div class="availability-badge fade-in-up delay-3">
-                        <span class="dot"></span> Available for Q1 2026 Remote Roles
+                </a>
+
+                <a href="structa.html" class="card">
+                    <img src="https://i.pinimg.com/736x/a1/6a/91/a16a91989fa6ac0c27677a0799eeb912.jpg" alt="Structa">
+                    <div class="card-content">
+                        <span class="impact-badge">Productivity • SaaS Logic</span>
+                        <h3 style="margin: 15px 0;">Structa</h3>
+                        <p>Simplifying task management and decision-making for remote workers. Focused on creating a clear task hierarchy to eliminate decision fatigue and visual noise.</p>
+                        <p style="font-size: 0.9rem; color: #b2bec3; margin-top: 10px;">UX Architecture • Design Systems • JS</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="hero-cv__right slide-in-right">
-                    <p class="hero-cv__bio">
-                        I specialize in <strong>Behavioral Design</strong>—crafting digital interfaces that respect cognitive load. With a background in high-pressure customer environments, I design solutions that solve real-world friction before it touches the screen.
-                    </p>
-                    <div class="hero-cv__actions">
-                        <a href="#projects" class="btn btn-primary">Analyze My Process</a>
-                        <a href="#contact" class="btn btn-outline">Start a Conversation</a>
+                <a href="paper.html" class="card">
+                    <img src="https://i.pinimg.com/736x/9b/67/55/9b6755a4c83822b3a95e16829d38061c.jpg" alt="Paper & Soul">
+                    <div class="card-content">
+                        <span class="impact-badge">Editorial UX • -30% Abandonment</span>
+                        <h3 style="margin: 15px 0;">Paper & Soul</h3>
+                        <p>An editorial e-commerce experience for <strong>Lina</strong>. Transforming shopping into a serene journey, increasing engagement time from 2 to 3 minutes through mindful browsing.</p>
+                        <p style="font-size: 0.9rem; color: #b2bec3; margin-top: 10px;">UX Writing • Storytelling • E-commerce</p>
                     </div>
+                </a>
+
+            </div>
+        </section>
+
+        <section style="margin: 100px 0; border-top: 1px solid #eee; padding-top: 60px;">
+            <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between;">
+                <div style="flex: 1; min-width: 300px;">
+                    <h3>Experience & Background</h3>
+                    <p>With 5 years in customer-facing environments, I have a daily exposure to real user pain points. This front-line experience informs my design decisions, ensuring they are grounded in reality, not just aesthetics.</p>
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <h3>Languages</h3>
+                    <p><strong>French:</strong> C2 (Native) | <strong>English:</strong> C1 (Professional) | <strong>German:</strong> B1</p>
                 </div>
             </div>
         </section>
 
-        <section class="experience-snapshot fade-in-up">
-            <div class="container">
-                <div class="snapshot-item">
-                    <span class="snapshot-val">5+ Yrs</span>
-                    <span class="snapshot-label">User-Centric Experience</span>
-                </div>
-                <div class="snapshot-item">
-                    <span class="snapshot-val">C2/C1</span>
-                    <span class="snapshot-label">FR / EN Professional Mastery</span>
-                </div>
-                <div class="snapshot-item">
-                    <span class="snapshot-val">SaaS</span>
-                    <span class="snapshot-label">Expertise in Complexity</span>
-                </div>
-            </div>
+        <section id="contact" style="background: var(--accent); color: white; padding: 80px; border-radius: 32px; text-align: center; margin-bottom: 60px;">
+            <h2 style="font-size: 2.5rem;">Let’s build something intentional.</h2>
+            <p style="margin: 20px 0 40px; opacity: 0.9;">Currently open to full-time remote Product Design roles and strategic collaborations.</p>
+            <a href="mailto:essaouafhalima@gmail.com" style="background: white; color: var(--accent); padding: 16px 40px; border-radius: 99px; text-decoration: none; font-weight: 700;">Get in touch</a>
         </section>
 
-        <section class="process reveal-on-scroll">
-            <div class="container">
-                <h2 class="section-title">The Strategic Design Loop</h2>
-                
-                <div class="process-grid">
-                    <article class="process-step">
-                        <div class="step-num">01</div>
-                        <h3>Discovery</h3>
-                        <p>Auditing pain points and identifying the "Why" behind user drop-offs.</p>
-                    </article>
-                    <article class="process-step">
-                        <div class="step-num">02</div>
-                        <h3>Architecture</h3>
-                        <p>Applying Gestalt principles to create logical, frictionless flows.</p>
-                    </article>
-                    <article class="process-step">
-                        <div class="step-num">03</div>
-                        <h3>Hi-Fi Logic</h3>
-                        <p>Prototyping with scalability and development constraints in mind.</p>
-                    </article>
-                    <article class="process-step">
-                        <div class="step-num">04</div>
-                        <h3>Validation</h3>
-                        <p>Using heatmaps and heuristic evaluations to refine the ROI.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="projects reveal-on-scroll" id="projects">
-            <div class="container">
-                <h2 class="section-title">Evidence-Based Case Studies</h2>
-                <div class="projects-grid">
-                    
-                    <article class="project-card pro reveal-on-scroll">
-                        <div class="project-image">
-                            <img src="https://i.pinimg.com/736x/85/8d/8c/858d8c6975776eb762decaf536db30e1.jpg" alt="SoftMind Interface">
-                        </div>
-                        <div class="project-info">
-                            <header>
-                                <span class="project-tag">Mental Health • SaaS</span>
-                                <h3>SoftMind: Behavioral Onboarding</h3>
-                            </header>
-                            <p>Solving the "Anxiety Loop" by redesigning the cognitive entry point of the app.</p>
-                            <div class="impact-metrics">
-                                <strong>Estimated Impact:</strong> +25% Retention in Week 1.
-                            </div>
-                            <a href="softmind.html" class="case-study-link">Read Strategy →</a>
-                        </div>
-                    </article>
-
-                    <article class="project-card pro reveal-on-scroll">
-                        <div class="project-image">
-                            <img src="https://i.pinimg.com/736x/a1/6a/91/a16a91989fa6ac0c27677a0799eeb912.jpg" alt="Structa Dashboard">
-                        </div>
-                        <div class="project-info">
-                            <header>
-                                <span class="project-tag">Productivity • Design System</span>
-                                <h3>Structa: Scaling Logic</h3>
-                            </header>
-                            <p>Reducing decision fatigue through a modular and hierarchical task architecture.</p>
-                            <div class="impact-metrics">
-                                <strong>Estimated Impact:</strong> -30% Task Creation Friction.
-                            </div>
-                            <a href="structa.html" class="case-study-link">Analyze the System →</a>
-                        </div>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-        <section class="manifesto reveal-on-scroll" id="manifesto">
-            <div class="container">
-                <h2 class="manifesto-title">"Design is not what it looks like, it's how users <em>feel</em> empowered."</h2>
-                <div class="manifesto-grid">
-                    <div class="manifesto-item">
-                        <h3>🧠 Cognitive Respect</h3>
-                        <p>We don't fight for attention; we earn it by being useful and silent.</p>
-                    </div>
-                    <div class="manifesto-item">
-                        <h3>💜 Radical Empathy</h3>
-                        <p>Data tells you what is happening; empathy tells you why it matters.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="contact reveal-on-scroll" id="contact">
-            <div class="container">
-                <h2 class="section-title">Ready to build something intentional?</h2>
-                <p class="contact-subtitle">Currently discussing Senior Product Design opportunities and strategic consulting.</p>
-                <div class="contact-cards">
-                    <a href="mailto:essaouafhalima@gmail.com" class="contact-card hover-scale">
-                        <span class="contact-icon">✉️</span>
-                        <strong>Email Me</strong>
-                        <span>Direct response in 24h</span>
-                    </a>
-                    <a href="https://linkedin.com/in/halima-essaouaf" class="contact-card hover-scale">
-                        <span class="contact-icon">💼</span>
-                        <strong>LinkedIn</strong>
-                        <span>Professional Network</span>
-                    </a>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <footer class="footer-bottom">
-        <p>&copy; 2026 Halima Essaouaf • Built with focus on Cognitive Clarity.</p>
+    <footer class="container" style="padding: 40px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.9rem; color: #636e72;">
+        &copy; 2026 Halima Essaouaf • Designed for the mind, not just the screen.
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
