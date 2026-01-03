@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halima Essaouaf | Senior Product Designer | Portfolio</title>
+    <title>Halima Essaouaf | Product Designer | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <style>
@@ -14,12 +14,11 @@
             --light-bg: #f8f9fa;
             --text-main: #1a1a1a;
             --text-muted: #636e72;
-            --radius: 32px;
+            --radius: 24px;
             --container: 1200px;
-            --transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            --transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        /* AUTO DARK MODE SUPPORT */
         @media (prefers-color-scheme: dark) {
             :root {
                 --light-bg: #1e1e1e;
@@ -44,7 +43,7 @@
 
         .container { max-width: var(--container); margin: 0 auto; padding: 0 40px; }
 
-        /* REVEAL ANIMATION */
+        /* REVEAL */
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
@@ -63,190 +62,9 @@
         .nav-links a { text-decoration: none; color: var(--text-main); margin-left: 40px; font-weight: 600; font-size: 0.9rem; transition: var(--transition); opacity: 0.7; }
         .nav-links a:hover { color: var(--primary); opacity: 1; }
 
-        /* HERO SECTION */
-        .hero { padding: 200px 0 120px; display: flex; align-items: center; gap: 60px; min-height: 80vh; }
-        .hero-content { flex: 1.4; }
-        h1 { font-size: clamp(3rem, 8vw, 5rem); line-height: 0.95; letter-spacing: -4px; margin-bottom: 30px; color: var(--dark); font-weight: 800; }
-        .tagline { font-size: 1.3rem; color: var(--text-muted); margin-bottom: 40px; max-width: 550px; font-weight: 400; }
+        /* HERO */
+        .hero { padding: 200
 
-        .hero-image { flex: 1; position: relative; perspective: 1000px; }
-        .hero-image img { 
-            width: 100%; 
-            border-radius: var(--radius); 
-            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
-            transition: var(--transition);
-            filter: grayscale(20%);
-        }
-        .hero-image:hover img { transform: rotateY(-5deg) rotateX(5deg); filter: grayscale(0%); }
-
-        /* TAGS */
-        .skills-wrap { display: flex; flex-wrap: wrap; gap: 10px; }
-        .tag { background: var(--light-bg); padding: 10px 22px; border-radius: 100px; font-size: 0.8rem; font-weight: 700; border: 1px solid rgba(0,0,0,0.05); text-transform: uppercase; letter-spacing: 0.5px; }
-
-        /* STATS BAR */
-        .stats-bar { background: var(--dark); color: white; padding: 100px 0; border-radius: 50px; margin: 40px 0 120px; position: relative; overflow: hidden; }
-        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; position: relative; z-index: 2; }
-        .stat-item h2 { font-size: 4rem; color: var(--primary); margin-bottom: 10px; font-weight: 800; letter-spacing: -2px; }
-        .stat-item p { opacity: 0.6; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; }
-
-       <div class="projects-container">
-
-    <div class="project-card">
-        <a href="softmind.html">
-            <img src="HomeSOFTMIND.png" alt="Projet Softmind">
-            <h3>SOFTMIND</h3>
-        </a>
-    </div>
-
-    <div class="project-card">
-        <a href="structa.html">
-            <img src="HomepageSTRUCTA.png" alt="Projet Structa">
-            <h3>STRUCTA</h3>
-        </a>
-    </div>
-
-    <div class="project-card">
-        <a href="paper.html">
-            <img src="Calm%20Exercise.png" alt="Projet Paper">
-            <h3>PAPER</h3>
-        </a>
-    </div>
-
-</div>
-        /* FOOTER CTA */
-        .footer-cta { background: var(--light-bg); padding: 120px 40px; border-radius: 80px; text-align: center; margin: 120px 0 60px; }
-        .footer-cta h2 { font-size: 3.5rem; letter-spacing: -2px; font-weight: 800; }
-        .btn-main { 
-            background: var(--dark); color: white; padding: 24px 60px; border-radius: 100px; 
-            text-decoration: none; font-weight: 700; display: inline-block; margin-top: 40px;
-            transition: var(--transition); font-size: 1.1rem;
-        }
-        .btn-main:hover { background: var(--primary); transform: scale(1.05); }
-
-        /* RESPONSIVE */
-        @media (max-width: 992px) {
-            .hero { flex-direction: column; text-align: center; padding-top: 140px; }
-            h1 { font-size: 3.5rem; }
-            .projects-grid { grid-template-columns: 1fr; }
-            .stats-grid { grid-template-columns: 1fr; gap: 60px; }
-            .hero-image { order: -1; width: 80%; }
-            .img-container { height: 350px; }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <nav class="container">
-            <a href="#" class="logo">HALIMA.E</a>
-            <div class="nav-links">
-                <a href="#projects">Work</a>
-                <a href="#about">Manifesto</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </nav>
-    </header>
-
-    <main class="container">
-        <section class="hero reveal active">
-            <div class="hero-content">
-                <h1>Designing clarity <br>for the mind.</h1>
-                <p class="tagline">I combine cognitive psychology and UX research to design calm, intentional digital products that reduce friction and deliver measurable business value.</p>
-                <div class="skills-wrap">
-                    <span class="tag">Behavioral Design</span>
-                    <span class="tag">SaaS Architecture</span>
-                    <span class="tag">UX Research</span>
-                    <span class="tag">HTML/CSS/JS</span>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="https://c.superprof.com/i/m/39005647/600/20251006181230/39005647.webp" alt="Halima Essaouaf">
-            </div>
-        </section>
-
-        <section class="stats-bar reveal">
-            <div class="stats-grid container">
-                <div class="stat-item">
-                    <h2>5 Yrs</h2>
-                    <p>Customer Service Excellence</p>
-                </div>
-                <div class="stat-item">
-                    <h2>+25%</h2>
-                    <p>Estimated Conversion Lift</p>
-                </div>
-                <div class="stat-item">
-                    <h2>Native</h2>
-                    <p>FR (C2) / EN (C1) / DE (B1)</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="section">
-    <div class="container">
-        <div class="section-header">
-            <span class="eyebrow">Portfolio</span>
-            <h2>Projets Sélectionnés</h2>
-        </div>
-
-        <div class="projects-grid">
-            <a href="softmind.html" class="project-card">
-                <div class="img-container">
-                    <img src="HomeSOFTMIND.png" alt="Softmind" style="width:100%; height:100%; object-fit:cover;">
-                </div>
-                <div class="project-info">
-                    <span class="project-impact">Design & Bien-être</span>
-                    <h3>SOFTMIND</h3>
-                </div>
-            </a>
-
-            <a href="structa.html" class="project-card">
-                <div class="img-container">
-                    <img src="HomepageSTRUCTA.png" alt="Structa" style="width:100%; height:100%; object-fit:cover;">
-                </div>
-                <div class="project-info">
-                    <span class="project-impact">Architecture & Structure</span>
-                    <h3>STRUCTA</h3>
-                </div>
-            </a>
-
-            <a href="paper.html" class="project-card">
-                <div class="img-container">
-                    <img src="Calm%20Exercise.png" alt="Paper" style="width:100%; height:100%; object-fit:cover;">
-                </div>
-                <div class="project-info">
-                    <span class="project-impact">UI/UX Design</span>
-                    <h3>PAPER</h3>
-                </div>
-            </a>
-        </div>
-    </div>
-</section>
-        <section class="footer-cta reveal" id="contact">
-            <h2>Let’s build something intentional.</h2>
-            <p style="margin-top: 20px; color: var(--text-muted); font-size: 1.2rem;">Currently open to Senior Product Design roles and strategic collaborations.</p>
-            <a href="mailto:essaouafhalima@gmail.com" class="btn-main">Get in Touch</a>
-        </section>
-    </main>
-
-    <footer style="text-align: center; padding: 80px 0; font-size: 0.9rem; color: var(--text-muted); font-weight: 500;">
-        &copy; 2026 Halima Essaouaf &bull; Designed for Clarity.
-    </footer>
-
-    <script>
-        // Reveal animation on scroll
-        window.addEventListener('scroll', () => {
-            const reveals = document.querySelectorAll('.reveal');
-            reveals.forEach(reveal => {
-                const windowHeight = window.innerHeight;
-                const revealTop = reveal.getBoundingClientRect().top;
-                if (revealTop < windowHeight - 100) {
-                    reveal.classList.add('active');
-                }
-            });
-        });
-    </script>
-</body> 
-</html>
 
 
 
