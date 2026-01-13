@@ -4,20 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paper & Soul Case Study | Halima Essaouaf</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    
+
     <style>
         :root {
-            /* PAPER & SOUL BRAND (Warm, Editorial, Sophisticated) */
             --paper-bg: #fff7ef;
             --paper-accent: #f08a24;
             --text-dark: #2e2e3a;
             --text-muted: #666e75;
             --white: #ffffff;
-            
-            /* UI TOKENS */
             --radius-lg: 24px;
             --radius-sm: 12px;
             --shadow-subtle: 0 10px 30px rgba(240, 138, 36, 0.08);
@@ -33,21 +31,35 @@
             scroll-behavior: smooth;
         }
 
-        /* Reading Progress */
         .progress-bar {
             position: fixed;
-            top: 0; left: 0; height: 4px;
+            top: 0; left: 0;
+            height: 4px;
             background: linear-gradient(90deg, var(--paper-accent), #7E2929);
-            width: 0%; z-index: 1000;
+            width: 0%;
+            z-index: 1000;
         }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
-        /* HEADER */
-        nav { padding: 40px 0; display: flex; justify-content: space-between; align-items: center; }
-        .back-link { text-decoration: none; color: var(--text-dark); font-weight: 800; letter-spacing: 1px; }
+        nav {
+            padding: 40px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-        /* SECTIONS */
+        .back-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
         .section {
             background: var(--white);
             padding: 90px 70px;
@@ -59,16 +71,47 @@
             transition: var(--transition);
         }
 
-        .section.active { opacity: 1; transform: translateY(0); }
+        .section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-        h1 { font-size: clamp(3.5rem, 10vw, 6rem); letter-spacing: -0.06em; line-height: 0.9; margin: 0; }
-        h2 { font-size: 2.5rem; letter-spacing: -0.03em; margin-bottom: 30px; color: var(--paper-accent); }
-        h3 { font-size: 1.5rem; margin-top: 30px; color: var(--text-dark); }
-        
-        .hero { text-align: center; padding: 120px 0; background: transparent; box-shadow: none; opacity: 1; transform: none; }
-        .subtitle { font-size: 1.6rem; color: var(--text-muted); max-width: 800px; margin: 30px auto; font-weight: 400; line-height: 1.4; }
+        h1 {
+            font-size: clamp(3.5rem, 10vw, 6rem);
+            letter-spacing: -0.06em;
+            line-height: 0.9;
+            margin: 0;
+        }
 
-        /* KPI / IMPACT CARDS */
+        h2 {
+            font-size: 2.5rem;
+            letter-spacing: -0.03em;
+            margin-bottom: 30px;
+            color: var(--paper-accent);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 30px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 120px 0;
+            background: transparent;
+            box-shadow: none;
+            opacity: 1;
+            transform: none;
+        }
+
+        .subtitle {
+            font-size: 1.6rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 30px auto;
+            line-height: 1.4;
+        }
+
         .impact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -84,9 +127,12 @@
             border: 1px solid rgba(240, 138, 36, 0.1);
         }
 
-        .impact-number { font-size: 3rem; font-weight: 800; color: var(--paper-accent); display: block; }
+        .impact-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--paper-accent);
+        }
 
-        /* EDITORIAL SCREEN GALLERY (Small & Captivating) */
         .screens-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -102,185 +148,181 @@
             border: 1px solid rgba(0,0,0,0.04);
         }
 
-        .screen-item:hover { transform: scale(1.03); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+        .screen-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
 
         .screen-item img {
             width: 100%;
-            height: 220px; /* Small size for mindful browsing style */
+            height: 220px;
             object-fit: cover;
-            display: block;
         }
 
-        .screen-info { padding: 20px; border-top: 1px solid #eee; }
-        .screen-title { font-weight: 700; display: block; margin-bottom: 5px; }
-        .screen-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
+        .screen-info {
+            padding: 20px;
+            border-top: 1px solid #eee;
+        }
 
-        /* PERSONA QUOTE */
+        .screen-title {
+            font-weight: 700;
+        }
+
+        .screen-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
         .persona-highlight {
             background: #2e2e3a;
             color: white;
             padding: 60px;
             border-radius: var(--radius-lg);
             margin: 60px 0;
-            position: relative;
         }
-        .persona-highlight h2 { color: var(--paper-accent); border: none; }
 
-        /* FIGMA WRAPPER */
+        .persona-highlight h2 {
+            color: var(--paper-accent);
+        }
+
         .figma-box {
             border-radius: var(--radius-lg);
             overflow: hidden;
             box-shadow: 0 40px 100px rgba(0,0,0,0.15);
             aspect-ratio: 16 / 9;
-            background: #000;
         }
 
-        /* ANIMATIONS */
-        ul li { margin-bottom: 15px; }
-        
+        ul li {
+            margin-bottom: 15px;
+        }
+
         @media (max-width: 768px) {
             .section { padding: 40px 25px; }
             h1 { font-size: 4rem; }
         }
     </style>
 </head>
+
 <body>
 
-    <div class="progress-bar" id="bar"></div>
+<div class="progress-bar" id="bar"></div>
 
-    <div class="container">
-        <nav>
-            <a href="index.html" class="back-link">← PAPER & SOUL</a>
-            <div style="font-weight: 600; opacity: 0.5;">CASE STUDY 2024</div>
-        </nav>
+<div class="container">
 
-        <header class="hero">
-            <h1>Mindful<br>Discovery.</h1>
-            <p class="subtitle">An editorial e-commerce experience designed for calm browsing—transforming online shopping into a serene journey.</p>
-            <div style="margin-top: 40px; font-weight: 600; color: var(--paper-accent);">
-                <span>4 WEEKS</span> • <span>FIGMA / HOTJAR</span> • <span>RETAIL DESIGN</span>
+<nav>
+    <a href="index.html" class="back-link">← PAPER & SOUL</a>
+    <div style="font-weight:600;opacity:.5;">CASE STUDY 2024</div>
+</nav>
+
+<header class="hero">
+    <h1>Mindful<br>Discovery.</h1>
+    <p class="subtitle">
+        An editorial e-commerce experience designed for calm browsing—transforming online shopping into a serene journey.
+    </p>
+    <div style="margin-top:40px;font-weight:600;color:var(--paper-accent);">
+        <span>4 WEEKS</span> • <span>FIGMA</span> • <span>RETAIL UX</span>
+    </div>
+</header>
+
+<section class="section active">
+    <h2>The Vision</h2>
+    <p>
+        Paper & Soul is an immersive editorial platform for artisanal paper goods.
+        In a market dominated by aggressive “Buy Now” tactics,
+        the goal was to prioritize visual breathing room and storytelling
+        to engage users who value the journey as much as the product.
+    </p>
+</section>
+
+<section class="section">
+    <h2>Problem Statement</h2>
+    <p>
+        Most e-commerce platforms prioritize conversion over experience,
+        resulting in cluttered interfaces filled with pop-ups, dense grids,
+        and urgency-driven messaging.
+        This creates cognitive overload and emotional fatigue,
+        shortening browsing sessions and reducing meaningful engagement.
+    </p>
+</section>
+
+<section class="section">
+    <h2>UX Objective</h2>
+    <p>
+        Design a calm, editorial shopping experience that encourages mindful browsing,
+        emotional connection with products,
+        and a frictionless path to checkout without pressure-driven tactics.
+    </p>
+</section>
+
+<section class="section">
+    <h2>User Flow</h2>
+    <ul>
+        <li>Homepage discovery through curated editorial content</li>
+        <li>Product immersion with storytelling and material focus</li>
+        <li>Add to cart without disruptive prompts</li>
+        <li>Calm, step-by-step checkout</li>
+        <li>Post-purchase satisfaction and brand trust</li>
+    </ul>
+</section>
+
+<section class="section">
+    <h2>The Editorial Interface</h2>
+
+    <div class="screens-grid">
+        <div class="screen-item">
+            <img src="https://raw.githubusercontent.com/LANASEHAR/Myportfolio/refs/heads/main/screen-1.png">
+            <div class="screen-info">
+                <span class="screen-title">Homepage</span>
+                <span class="screen-desc">Editorial discovery over aggressive banners.</span>
             </div>
-        </header>
-
-        <section class="section active">
-            <h2>The Vision</h2>
-            <p>Paper & Soul is an immersive editorial platform for artisanal paper goods. In a market dominated by aggressive "Buy Now" tactics, we prioritized <strong>visual breathing room</strong> and <strong>storytelling</strong> to engage creative professionals who value the journey as much as the product.</p>
-        </section>
-
-        <section class="section">
-            <h2>The "Clutter" Crisis</h2>
-            <p>Traditional e-commerce overwhelms users with pop-ups and endless grids, causing <strong>70% of users to abandon carts</strong> due to mental exhaustion. Browsing usually lasts only 2 minutes before frustration peaks.</p>
-            
-            <div class="impact-grid">
-                <div class="impact-card">
-                    <span class="impact-number">70%</span>
-                    <span>Average Abandonment</span>
-                </div>
-                <div class="impact-card">
-                    <span class="impact-number">2 min</span>
-                    <span>Frustration Peak</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>User Insights</h2>
-            <p>Surveys of 25 creative professionals revealed a deep craving for "story-driven" discovery. Minimalism isn't just an aesthetic; it's a value multiplier.</p>
-            <ul>
-                <li><strong>Narrative Power:</strong> 85% of users engage longer with editorial layouts than standard grids.</li>
-                <li><strong>Cognitive Load:</strong> Generous white space increases perceived product value by <strong>40%</strong>.</li>
-                <li><strong>Mindful Consumption:</strong> Users want to "feel" the texture of paper through high-quality visual hierarchy.</li>
-            </ul>
-        </section>
-
-        <div class="persona-highlight">
-            <h2>Persona: Lina</h2>
-            <p style="font-size: 1.2rem; opacity: 0.9;"><strong>28, Reader & Creative Professional</strong></p>
-            <p>Lina avoids cluttered sites that feel "salesy." She wants to browse like flipping through a beautiful magazine. She values aesthetics and meaningful discovery.</p>
-            <blockquote style="font-size: 2rem; font-weight: 800; line-height: 1.2; margin-top: 30px; color: var(--paper-accent);">
-                "I want to shop in a place that respects my attention, not fights for it."
-            </blockquote>
         </div>
 
-        <section class="section">
-            <h2>Measurable Success</h2>
-            <p>Our editorial approach yielded significant behavioral shifts in moderated testing sessions.</p>
-            <div class="impact-grid">
-                <div class="impact-card">
-                    <span class="impact-number">+45%</span>
-                    <span>Browsing Time</span>
-                </div>
-                <div class="impact-card">
-                    <span class="impact-number">-28%</span>
-                    <span>Cart Abandonment</span>
-                </div>
-                <div class="impact-card">
-                    <span class="impact-number">8.5/10</span>
-                    <span>Emotional Connection</span>
-                </div>
+        <div class="screen-item">
+            <img src="https://raw.githubusercontent.com/LANASEHAR/Myportfolio/refs/heads/main/Product%20page.png">
+            <div class="screen-info">
+                <span class="screen-title">Product Immersion</span>
+                <span class="screen-desc">Storytelling-driven product detail.</span>
             </div>
-        </section>
+        </div>
 
-        <section class="section">
-            <h2>The Editorial Interface</h2>
-            <p>High-fidelity screens showcasing a harmonious balance of typography and product storytelling.</p>
-            <div class="screens-grid">
-                <div class="screen-item">
-                    <img src="https://raw.githubusercontent.com/LANASEHAR/Myportfolio/refs/heads/main/screen-1.png" alt="Homepage">
-                    <div class="screen-info">
-                        <span class="screen-title">The Homepage</span>
-                        <span class="screen-desc">Curated stories replacing aggressive banners.</span>
-                    </div>
-                </div>
-                <div class="screen-item">
-                    <img src="https://raw.githubusercontent.com/LANASEHAR/Myportfolio/refs/heads/main/Product%20page.png" alt="Product View">
-                    <div class="screen-info">
-                        <span class="screen-title">Immersion Page</span>
-                        <span class="screen-desc">Narrative-rich product details and texture focus.</span>
-                    </div>
-                </div>
-                <div class="screen-item">
-                    <img src="https://raw.githubusercontent.com/LANASEHAR/Myportfolio/refs/heads/main/Cart.png" alt="Checkout">
-                    <div class="screen-info">
-                        <span class="screen-title">Calm Checkout</span>
-                        <span class="screen-desc">Simplified, reassuring process with clear steps.</span>
-                    </div>
-                </div>
+        <div class="screen-item">
+            <img src="https://raw.githubusercontent.com/LANASEHAR/Myportfolio/refs/heads/main/Cart.png">
+            <div class="screen-info">
+                <span class="screen-title">Calm Checkout</span>
+                <span class="screen-desc">Clear steps, reduced anxiety.</span>
             </div>
-        </section>
-
-        <section class="section">
-            <h2>Interactive Prototype</h2>
-            <div class="figma-box">
-                <iframe style="border: none;" width="100%" height="100%" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/FCF9A1R7hwxGg8uoLIMqBB/PAPER---SOULE-commerce-Website" allowfullscreen></iframe>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Key Learnings</h2>
-            <p>Paper & Soul proved that <strong>Empathy in E-commerce</strong> drives loyalty. By reducing visual noise, we improved brand perception and turned a simple transaction into a meditative experience.</p>
-            <p><strong>Next Steps:</strong> Explore A/B testing on personalized curation and long-term retention metrics for editorial subscribers.</p>
-        </section>
-
+        </div>
     </div>
+</section>
 
-    <script>
-        // Progress Scroll
-        window.onscroll = function() {
-            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            var scrolled = (winScroll / height) * 100;
-            document.getElementById("bar").style.width = scrolled + "%";
-        };
+<section class="section">
+    <h2>Key Learnings</h2>
+    <p>
+        Paper & Soul demonstrated that reducing visual noise
+        and designing for emotional comfort
+        increases engagement and trust.
+        Editorial layouts can transform e-commerce
+        from a transaction into an experience.
+    </p>
+</section>
 
-        // Scroll Observer
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('active');
-            });
-        }, { threshold: 0.15 });
+</div>
 
-        document.querySelectorAll('.section').forEach(section => observer.observe(section));
-    </script>
+<script>
+window.onscroll = function() {
+    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    document.getElementById("bar").style.width = (winScroll / height) * 100 + "%";
+};
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('active');
+    });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.section').forEach(section => observer.observe(section));
+</script>
+
 </body>
 </html>
