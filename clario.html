@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clario Case Study | Halima Essaouaf</title>
+  <title>Clario | UX Case Study</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,16 +11,16 @@
 
   <style>
     :root {
-      /* Green Palette */
+      /* Palette Green Professionnelle */
       --clario-bg: #f0f4f2;
-      --clario-accent: #2d6a4f; /* Deep Emerald Green */
+      --clario-accent: #2d6a4f; /* Vert sapin profond */
       --clario-light-green: #d8f3dc;
       --text-dark: #1b4332;
       --text-muted: #52796f;
       --white: #ffffff;
       --radius-lg: 32px;
       --radius-sm: 16px;
-      --shadow-subtle: 0 15px 40px rgba(45, 106, 79, 0.08);
+      --shadow-subtle: 0 15px 35px rgba(45, 106, 79, 0.08);
       --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -48,7 +48,7 @@
     }
 
     .container {
-      max-width: 900px; /* Narrower container for better readability */
+      max-width: 900px; /* Réduit pour une lecture plus agréable */
       margin: 0 auto;
       padding: 0 24px;
     }
@@ -62,89 +62,80 @@
 
     .back-link {
       text-decoration: none;
-      color: var(--text-dark);
-      font-weight: 700;
+      color: var(--clario-accent);
+      font-weight: 800;
       font-size: 0.9rem;
       transition: var(--transition);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .back-link:hover { color: var(--clario-accent); transform: translateX(-5px); }
-
-    .hero { text-align: center; padding: 80px 0 100px; }
-    h1 { font-size: clamp(3.5rem, 10vw, 6rem); margin: 0; color: var(--clario-accent); letter-spacing: -3px; font-weight: 800; }
-    
-    .hero-image {
-      width: 100%;
-      max-width: 700px; /* Reduced hero image size */
-      border-radius: var(--radius-lg);
-      margin-top: 50px;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.1);
-    }
-
-    .subtitle {
-      font-size: 1.4rem;
-      color: var(--text-muted);
-      margin-top: 25px;
-      max-width: 650px;
-      margin-left: auto;
-      margin-right: auto;
-      font-weight: 400;
     }
 
     .section {
       background: var(--white);
-      padding: 70px 50px;
+      padding: 60px;
       border-radius: var(--radius-lg);
       margin-bottom: 40px;
       box-shadow: var(--shadow-subtle);
       opacity: 0;
-      transform: translateY(40px);
+      transform: translateY(20px);
       transition: var(--transition);
     }
 
-    .section.active { opacity: 1; transform: translateY(0); }
+    .section.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-    h2 { font-size: 2rem; color: var(--clario-accent); margin-bottom: 20px; font-weight: 800; letter-spacing: -1px; }
+    h1 { font-size: clamp(3rem, 10vw, 5.5rem); letter-spacing: -3px; color: var(--clario-accent); margin-bottom: 10px; }
+    h2 { font-size: 2rem; font-weight: 800; color: var(--clario-accent); margin-bottom: 20px; border-left: 4px solid var(--clario-light-green); padding-left: 15px; }
     
+    .hero { text-align: center; padding: 120px 0 80px; }
+    
+    .subtitle {
+      font-size: 1.4rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Screenshots plus petits et élégants */
     .screens-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Smaller grid items */
+      display: flex;
+      justify-content: center;
       gap: 40px;
       margin-top: 40px;
+      flex-wrap: wrap;
     }
 
     .screen-item {
-      text-align: center;
-    }
-
-    .img-wrapper {
-      background: var(--clario-bg);
-      padding: 20px;
+      max-width: 280px; /* Taille réduite pour les screenshots */
       border-radius: var(--radius-sm);
-      margin-bottom: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
       transition: var(--transition);
     }
-    
-    .img-wrapper:hover { background: var(--clario-light-green); transform: scale(1.02); }
 
-    .screen-item img {
-      width: 100%;
-      max-width: 220px; /* Strictly controlled screenshot size */
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-      margin: 0 auto;
-    }
+    .screen-item:hover { transform: scale(1.05); }
+
+    .screen-item img { width: 100%; height: auto; display: block; }
 
     .figma-box {
       width: 100%;
       height: 550px;
       border-radius: var(--radius-lg);
       overflow: hidden;
-      margin-top: 30px;
+      margin-top: 24px;
       border: 1px solid var(--clario-light-green);
+    }
+
+    .badge {
+      background: var(--clario-light-green);
+      color: var(--clario-accent);
+      padding: 6px 12px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 15px;
     }
 
     @media (max-width:768px) {
@@ -158,54 +149,43 @@
 
 <div class="container">
   <nav>
-    <a href="index.html" class="back-link">← BACK TO PORTFOLIO</a>
-    <div style="font-weight:700; color: var(--clario-accent); opacity:0.8;">CLARIO // 2026</div>
+    <a href="index.html" class="back-link">← PROJECTS</a>
+    <div style="font-weight:700; color: var(--text-muted);">02 — PRODUCTIVITY</div>
   </nav>
 
   <header class="hero">
-    <h1>Clario.</h1>
+    <span class="badge">UX Design Case Study</span>
+    <h1>Clario</h1>
     <p class="subtitle">
-      A minimalist productivity ecosystem engineered to eliminate decision fatigue 
-      through intelligent task prioritization.
+      A minimalist productivity interface designed to eliminate cognitive friction and mental overload.
     </p>
-    <img src="clariohomepage.png" alt="Clario Platform" class="hero-image">
   </header>
 
   <section class="section">
-    <h2>The Challenge</h2>
+    <h2>The Problem</h2>
     <p>
-      Modern professionals are paralyzed by over-choice. Traditional task managers amplify anxiety by presenting endless, unweighted lists. <strong>Clario</strong> was born from the need to replace complexity with clarity, focusing on the psychological impact of digital interfaces on productivity.
+      In an era of digital noise, modern productivity tools often contribute to <strong>decision fatigue</strong>. Users are bombarded with infinite lists and complex task hierarchies, leading to procrastination rather than action. The core issue isn't a lack of tools, but a lack of <strong>clarity</strong>.
     </p>
   </section>
 
   <section class="section">
     <h2>UX Strategy</h2>
     <p>
-      Our primary objective was to reduce the <strong>cognitive load</strong> of daily planning. By implementing a "Single-Task Focus" philosophy, the UI guides the user toward one high-impact action, effectively neutralizing the friction between intention and execution.
+      The goal was to build a "monotasking" experience. By leveraging <strong>Hick’s Law</strong>, Clario narrows down choices to the absolute essential. We focused on reducing the distance between opening the app and starting a meaningful task.
     </p>
   </section>
 
   <section class="section">
-    <h2>Visual Architecture</h2>
+    <h2>Interface Design</h2>
     <div class="screens-grid">
       <div class="screen-item">
-        <div class="img-wrapper">
-          <img src="Clario.png" alt="Mobile UI Focus">
-        </div>
-        <strong>Distraction-Free UI</strong>
-        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px;">
-          Using negative space and soft green tones to induce calmness during high-pressure work hours.
-        </p>
+        <img src="Clario.png" alt="Clario Core Interface">
       </div>
-      <div class="screen-item">
-        <div class="img-wrapper">
-          <img src="clariohomepage.png" alt="Dashboard Logic">
-        </div>
-        <strong>Contextual Dashboard</strong>
-        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px;">
-          An adaptive interface that evolves throughout the day, showing only what is relevant <em>now</em>.
-        </p>
-      </div>
+    </div>
+    <div style="margin-top: 30px; text-align: center;">
+      <p style="color: var(--text-muted); font-size: 0.95rem;">
+        <strong>Intentional Layout:</strong> Using generous white space and high-contrast typography to anchor user attention on a single primary action.
+      </p>
     </div>
   </section>
 
@@ -222,9 +202,9 @@
   </section>
 
   <section class="section">
-    <h2>Key Results</h2>
+    <h2>Key Learnings</h2>
     <p>
-      By prioritizing <strong>simplicity over surplus features</strong>, Clario proves that less is indeed more. The outcome is a seamless user journey that fosters deep work, reduces mental burnout, and transforms task management from a burden into a ritual.
+      This project proved that <strong>less is truly more</strong> in productivity design. By removing secondary features and focusing on "Today’s Context," we saw a significant decrease in user abandonment. UX is not about what you can add, but what you can't take away.
     </p>
   </section>
 </div>
