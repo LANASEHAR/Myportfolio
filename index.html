@@ -152,13 +152,27 @@
                         <span class="project-desc">Reducing cognitive load in mental health tracking.</span>
                     </div>
                 </a>
-<!-- Clario -->
+<style>
+  /* On cible le conteneur de l'image pour limiter sa taille */
+  .project-card.pro .project-image {
+    width: 100%;           /* Prend toute la largeur de la carte */
+    max-width: 350px;      /* MAIS ne dépasse pas 350px (ajustez ce chiffre) */
+    margin: 0 auto;        /* Centre l'image si elle est plus petite que la carte */
+    overflow: hidden;
+    border-radius: 12px;   /* Un petit arrondi pour faire "pro" */
+  }
+
+  .project-card.pro .project-image img {
+    width: 100%;           /* L'image remplit son conteneur */
+    height: 200px;         /* On fixe une hauteur */
+    object-fit: cover;     /* TRÈS IMPORTANT: l'image est recadrée sans être écrasée */
+    display: block;
+  }
+</style>
+
 <a href="clario.html" class="project-card pro">
   <div class="project-image">
-    <img
-      src="téléchargement (2).jpg"
-      alt="Clario productivity app"
-    >
+    <img src="téléchargement (2).jpg" alt="Clario productivity app">
   </div>
 
   <div class="project-info">
@@ -209,6 +223,7 @@
 
 </body>
 </html>
+
 
 
 
